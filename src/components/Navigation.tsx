@@ -1,54 +1,56 @@
 import { NavLink } from "./NavLink";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Camera } from "lucide-react";
 import { useState } from "react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b-2 border-beige shadow-sm">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="text-2xl font-serif font-bold tracking-tight">
-            Viewfinder
+          <NavLink to="/" className="flex items-center gap-2 group">
+            <Camera className="text-primary transition-transform group-hover:rotate-12" size={28} />
+            <span className="text-2xl font-rounded font-bold tracking-tight text-primary">
+              Viewfinder
+            </span>
           </NavLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
             <NavLink
               to="/"
-              className="text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-dusty-pink/30"
+              activeClassName="bg-dusty-pink text-foreground font-semibold"
             >
               Home
             </NavLink>
             <NavLink
               to="/about"
-              className="text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sage/30"
+              activeClassName="bg-sage text-foreground font-semibold"
             >
               About
             </NavLink>
             <NavLink
               to="/viewfinder"
-              className="text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sepia/30"
+              activeClassName="bg-sepia text-foreground font-semibold"
             >
               Viewfinder
             </NavLink>
             <NavLink
               to="/connect"
-              className="text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground transition-all hover:scale-105 shadow-md"
             >
-              Connect
+              Join Waitlist
             </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-secondary rounded-md transition-colors"
+            className="md:hidden p-2 hover:bg-secondary rounded-full transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -57,38 +59,37 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 border-t border-border pt-4">
+          <div className="md:hidden mt-4 pb-4 space-y-2 border-t-2 border-beige pt-4">
             <NavLink
               to="/"
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-dusty-pink/30"
+              activeClassName="bg-dusty-pink text-foreground font-semibold"
             >
               Home
             </NavLink>
             <NavLink
               to="/about"
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sage/30"
+              activeClassName="bg-sage text-foreground font-semibold"
             >
               About
             </NavLink>
             <NavLink
               to="/viewfinder"
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sepia/30"
+              activeClassName="bg-sepia text-foreground font-semibold"
             >
               Viewfinder
             </NavLink>
             <NavLink
               to="/connect"
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium transition-colors hover:text-accent"
-              activeClassName="text-accent"
+              className="block px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground text-center"
             >
-              Connect
+              Join Waitlist
             </NavLink>
           </div>
         )}

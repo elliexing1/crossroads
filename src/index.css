@@ -2,103 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Scrapbook Film Photography Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 10%;
+    /* Soft neutral scrapbook colors */
+    --background: 40 30% 96%; /* cream */
+    --foreground: 25 20% 25%; /* dark sepia brown */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card: 40 40% 98%; /* lighter cream */
+    --card-foreground: 25 20% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 25 20% 25%;
 
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 20 40% 60%; /* dusty terracotta */
+    --primary-foreground: 40 40% 98%;
 
-    --secondary: 30 15% 92%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 340 30% 85%; /* dusty pink */
+    --secondary-foreground: 25 20% 25%;
 
-    --muted: 30 10% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 100 20% 85%; /* sage */
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 25 85% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 70% 75%; /* warm sepia */
+    --accent-foreground: 25 20% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 40 40% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 10%;
+    --border: 40 25% 88%; /* light beige */
+    --input: 40 25% 88%;
+    --ring: 20 40% 60%;
 
-    --radius: 0.25rem;
+    --radius: 1rem; /* rounded for scrapbook feel */
 
-    /* Film-inspired colors */
-    --film-warm: 25 85% 60%;
-    --film-neutral: 30 5% 50%;
-    --film-dark: 0 0% 10%;
+    /* Film-inspired scrapbook colors */
+    --cream: 40 30% 96%;
+    --sepia: 30 40% 70%;
+    --beige: 35 25% 85%;
+    --dusty-pink: 340 30% 85%;
+    --sage: 100 20% 85%;
+    --film-brown: 25 25% 40%;
+    --polaroid-white: 0 0% 98%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(30 15% 95%) 100%);
+    /* Paper texture overlay */
+    --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03' /%3E%3C/svg%3E");
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 30 15% 92%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 0 0% 10%;
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 25 20% 25%;
+    --sidebar-primary: 20 40% 60%;
+    --sidebar-primary-foreground: 40 40% 98%;
+    --sidebar-accent: 340 30% 85%;
+    --sidebar-accent-foreground: 25 20% 25%;
+    --sidebar-border: 40 25% 88%;
+    --sidebar-ring: 20 40% 60%;
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
+    --background: 25 25% 12%;
+    --foreground: 40 30% 95%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 25 25% 15%;
+    --card-foreground: 40 30% 95%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 25 25% 15%;
+    --popover-foreground: 40 30% 95%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 20 50% 65%;
+    --primary-foreground: 25 25% 12%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 340 25% 30%;
+    --secondary-foreground: 40 30% 95%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 100 15% 25%;
+    --muted-foreground: 40 20% 70%;
 
-    --accent: 25 85% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 45 50% 50%;
+    --accent-foreground: 40 30% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 40 30% 95%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 83.9%;
+    --border: 25 20% 22%;
+    --input: 25 20% 22%;
+    --ring: 20 50% 65%;
     
-    --film-warm: 25 85% 60%;
-    --film-neutral: 30 5% 50%;
-    --film-dark: 0 0% 98%;
+    --cream: 25 25% 12%;
+    --sepia: 30 30% 40%;
+    --beige: 35 20% 30%;
+    --dusty-pink: 340 25% 30%;
+    --sage: 100 15% 25%;
+    --film-brown: 25 25% 70%;
+    --polaroid-white: 25 25% 15%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 15%) 100%);
-    
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 18%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 0 0% 83.9%;
+    --sidebar-background: 25 25% 12%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 20 50% 65%;
+    --sidebar-primary-foreground: 25 25% 12%;
+    --sidebar-accent: 340 25% 30%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 25 20% 22%;
+    --sidebar-ring: 20 50% 65%;
   }
 }
 
@@ -109,28 +114,187 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    background-image: var(--paper-texture);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+  }
+  
+  .handwritten {
+    font-family: 'Caveat', cursive;
   }
 }
 
 @layer components {
-  .editorial-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  /* Scrapbook grid - organic, non-strict */
+  .scrapbook-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
   }
   
+  /* Polaroid frame effect */
+  .polaroid {
+    @apply bg-polaroid-white p-3 pb-12 shadow-lg relative;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    @apply shadow-2xl;
+  }
+  
+  .polaroid:nth-child(even) {
+    transform: rotate(2deg);
+  }
+  
+  .polaroid:nth-child(even):hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+  
+  /* Washi tape effect */
+  .washi-tape {
+    @apply relative;
+  }
+  
+  .washi-tape::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply w-24 h-8 opacity-40;
+    background: linear-gradient(90deg, 
+      hsl(var(--dusty-pink)) 0%, 
+      hsl(var(--dusty-pink)) 100%);
+    transform: translateX(-50%) translateY(-50%) rotate(-5deg);
+  }
+  
+  /* Paper cutout effect */
+  .paper-cutout {
+    @apply bg-card rounded-3xl p-6 shadow-md;
+    box-shadow: 
+      3px 3px 8px rgba(0,0,0,0.1),
+      -1px -1px 3px rgba(255,255,255,0.5);
+  }
+  
+  /* Film strip border */
+  .film-strip {
+    @apply relative border-4 border-film-brown;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        hsl(var(--film-brown)) 0px,
+        hsl(var(--film-brown)) 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        hsl(var(--film-brown)) 0px,
+        hsl(var(--film-brown)) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+  }
+  
+  /* Soft shadows for overlapping elements */
+  .scrapbook-shadow {
+    box-shadow: 
+      2px 4px 12px rgba(0,0,0,0.08),
+      4px 8px 24px rgba(0,0,0,0.06);
+  }
+  
+  /* Hero title - scrapbook style */
   .hero-title {
-    @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none;
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight;
   }
   
+  /* Section title */
   .section-title {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
   
-  .body-serif {
-    font-family: 'Playfair Display', serif;
+  /* Handwritten caption */
+  .caption {
+    @apply handwritten text-lg md:text-xl text-muted-foreground;
   }
+  
+  /* Sticker effect */
+  .sticker {
+    @apply inline-block px-4 py-2 bg-accent rounded-full shadow-md transform transition-transform hover:scale-110;
+  }
+  
+  /* Film grain animation */
+  @keyframes film-grain {
+    0%, 100% { opacity: 0.05; }
+    50% { opacity: 0.08; }
+  }
+  
+  .film-grain {
+    animation: film-grain 0.5s infinite;
+  }
+  
+  /* Photo reveal animation */
+  @keyframes photo-reveal {
+    from {
+      opacity: 0;
+      transform: scale(0.8) rotate(-5deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  .photo-reveal {
+    animation: photo-reveal 0.6s ease-out forwards;
+  }
+  
+  /* Organic overlap */
+  .overlap-grid > * {
+    @apply relative;
+  }
+  
+  .overlap-grid > *:nth-child(2n) {
+    @apply md:mt-8;
+  }
+  
+  .overlap-grid > *:nth-child(3n) {
+    @apply md:-mt-4;
+  }
+}
+
+@layer utilities {
+  /* Rotation utilities for organic feel */
+  .rotate-slight-left {
+    transform: rotate(-1.5deg);
+  }
+  
+  .rotate-slight-right {
+    transform: rotate(1.5deg);
+  }
+  
+  /* Custom colors as utilities */
+  .bg-cream { background-color: hsl(var(--cream)); }
+  .bg-sepia { background-color: hsl(var(--sepia)); }
+  .bg-beige { background-color: hsl(var(--beige)); }
+  .bg-dusty-pink { background-color: hsl(var(--dusty-pink)); }
+  .bg-sage { background-color: hsl(var(--sage)); }
+  .bg-film-brown { background-color: hsl(var(--film-brown)); }
+  .bg-polaroid-white { background-color: hsl(var(--polaroid-white)); }
+  
+  .text-cream { color: hsl(var(--cream)); }
+  .text-sepia { color: hsl(var(--sepia)); }
+  .text-beige { color: hsl(var(--beige)); }
+  .text-dusty-pink { color: hsl(var(--dusty-pink)); }
+  .text-sage { color: hsl(var(--sage)); }
+  .text-film-brown { color: hsl(var(--film-brown)); }
+  
+  .border-cream { border-color: hsl(var(--cream)); }
+  .border-sepia { border-color: hsl(var(--sepia)); }
+  .border-beige { border-color: hsl(var(--beige)); }
+  .border-dusty-pink { border-color: hsl(var(--dusty-pink)); }
+  .border-sage { border-color: hsl(var(--sage)); }
+  .border-film-brown { border-color: hsl(var(--film-brown)); }
 }
