@@ -11,8 +11,8 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center gap-2 group">
             <Camera className="text-primary transition-transform group-hover:rotate-12" size={28} />
-            <span className="text-2xl font-rounded font-bold tracking-tight text-primary">
-              Viewfinder
+            <span className="text-2xl font-title font-bold tracking-tight text-foreground">
+              Crossroads
             </span>
           </NavLink>
 
@@ -21,29 +21,23 @@ const Navigation = () => {
             <NavLink
               to="/"
               className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-dusty-pink/30"
-              activeClassName="bg-dusty-pink text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               Home
             </NavLink>
             <NavLink
               to="/about"
               className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sage/30"
-              activeClassName="bg-sage text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               About
             </NavLink>
             <NavLink
               to="/viewfinder"
               className="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sepia/30"
-              activeClassName="bg-sepia text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               Viewfinder
-            </NavLink>
-            <NavLink
-              to="/connect"
-              className="px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground transition-all hover:scale-105 shadow-md"
-            >
-              Join Waitlist
             </NavLink>
           </div>
 
@@ -64,7 +58,7 @@ const Navigation = () => {
               to="/"
               onClick={() => setIsOpen(false)}
               className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-dusty-pink/30"
-              activeClassName="bg-dusty-pink text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               Home
             </NavLink>
@@ -72,7 +66,7 @@ const Navigation = () => {
               to="/about"
               onClick={() => setIsOpen(false)}
               className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sage/30"
-              activeClassName="bg-sage text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               About
             </NavLink>
@@ -80,16 +74,9 @@ const Navigation = () => {
               to="/viewfinder"
               onClick={() => setIsOpen(false)}
               className="block px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-sepia/30"
-              activeClassName="bg-sepia text-foreground font-semibold"
+              activeClassName="bg-primary text-primary-foreground font-semibold"
             >
               Viewfinder
-            </NavLink>
-            <NavLink
-              to="/connect"
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground text-center"
-            >
-              Join Waitlist
             </NavLink>
           </div>
         )}

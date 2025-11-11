@@ -2,108 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Scrapbook Film Photography Design System */
+/* Crossroads Viewfinder - Scrapbook Film Photography Design System */
 
 @layer base {
   :root {
-    /* Soft neutral scrapbook colors */
-    --background: 40 30% 96%; /* cream */
-    --foreground: 25 20% 25%; /* dark sepia brown */
+    /* Crossroads Brand Colors - Neutral Base */
+    --background: 192 36% 93%; /* #E9F2F4 light blue-gray */
+    --foreground: 27 42% 17%; /* #3F2C1A dark brown */
 
-    --card: 40 40% 98%; /* lighter cream */
-    --card-foreground: 25 20% 25%;
+    --card: 0 0% 98%;
+    --card-foreground: 27 42% 17%;
 
-    --popover: 40 40% 98%;
-    --popover-foreground: 25 20% 25%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 27 42% 17%;
 
-    --primary: 20 40% 60%; /* dusty terracotta */
-    --primary-foreground: 40 40% 98%;
+    /* Primary Brand Colors */
+    --primary: 55 87% 56%; /* #F1E82F bright yellow */
+    --primary-foreground: 27 42% 17%;
+    
+    --primary-orange: 11 100% 55%; /* #FF401A red-orange */
+    --primary-golden: 43 88% 56%; /* #F3BC2E golden yellow */
 
-    --secondary: 340 30% 85%; /* dusty pink */
-    --secondary-foreground: 25 20% 25%;
+    /* Secondary Brand Colors */
+    --secondary: 85 44% 49%; /* #83B446 green */
+    --secondary-foreground: 27 42% 17%;
+    
+    --secondary-magenta: 297 96% 52%; /* #FA0CFE magenta */
+    --secondary-purple: 260 54% 43%; /* #502FAF purple */
 
-    --muted: 100 20% 85%; /* sage */
-    --muted-foreground: 25 15% 45%;
+    /* Neutral Colors */
+    --muted: 192 17% 56%; /* #7B9BA4 blue-gray */
+    --muted-foreground: 27 42% 17%;
 
-    --accent: 45 70% 75%; /* warm sepia */
-    --accent-foreground: 25 20% 25%;
+    --accent: 43 88% 56%; /* golden yellow */
+    --accent-foreground: 27 42% 17%;
 
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 40 40% 98%;
+    --destructive: 11 100% 55%;
+    --destructive-foreground: 192 36% 93%;
 
-    --border: 40 25% 88%; /* light beige */
-    --input: 40 25% 88%;
-    --ring: 20 40% 60%;
+    --border: 192 17% 56%;
+    --input: 192 36% 93%;
+    --ring: 55 87% 56%;
 
-    --radius: 1rem; /* rounded for scrapbook feel */
+    --radius: 1rem;
 
-    /* Film-inspired scrapbook colors */
-    --cream: 40 30% 96%;
-    --sepia: 30 40% 70%;
-    --beige: 35 25% 85%;
-    --dusty-pink: 340 30% 85%;
-    --sage: 100 20% 85%;
-    --film-brown: 25 25% 40%;
+    /* Film-inspired scrapbook colors - adjusted to brand */
+    --cream: 192 36% 93%;
+    --sepia: 43 88% 56%;
+    --beige: 192 17% 80%;
+    --dusty-pink: 11 100% 75%;
+    --sage: 85 44% 70%;
+    --film-brown: 27 42% 17%;
     --polaroid-white: 0 0% 98%;
+    
+    /* Highlight/Spotlight colors */
+    --highlight: 55 87% 56%;
+    --spotlight: 11 100% 55%;
     
     /* Paper texture overlay */
     --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03' /%3E%3C/svg%3E");
 
-    --sidebar-background: 40 30% 96%;
-    --sidebar-foreground: 25 20% 25%;
-    --sidebar-primary: 20 40% 60%;
-    --sidebar-primary-foreground: 40 40% 98%;
-    --sidebar-accent: 340 30% 85%;
-    --sidebar-accent-foreground: 25 20% 25%;
-    --sidebar-border: 40 25% 88%;
-    --sidebar-ring: 20 40% 60%;
+    --sidebar-background: 192 36% 93%;
+    --sidebar-foreground: 27 42% 17%;
+    --sidebar-primary: 55 87% 56%;
+    --sidebar-primary-foreground: 27 42% 17%;
+    --sidebar-accent: 85 44% 49%;
+    --sidebar-accent-foreground: 27 42% 17%;
+    --sidebar-border: 192 17% 56%;
+    --sidebar-ring: 55 87% 56%;
   }
 
   .dark {
-    --background: 25 25% 12%;
-    --foreground: 40 30% 95%;
+    --background: 27 42% 12%;
+    --foreground: 192 36% 93%;
 
-    --card: 25 25% 15%;
-    --card-foreground: 40 30% 95%;
+    --card: 27 42% 15%;
+    --card-foreground: 192 36% 93%;
 
-    --popover: 25 25% 15%;
-    --popover-foreground: 40 30% 95%;
+    --popover: 27 42% 15%;
+    --popover-foreground: 192 36% 93%;
 
-    --primary: 20 50% 65%;
-    --primary-foreground: 25 25% 12%;
-
-    --secondary: 340 25% 30%;
-    --secondary-foreground: 40 30% 95%;
-
-    --muted: 100 15% 25%;
-    --muted-foreground: 40 20% 70%;
-
-    --accent: 45 50% 50%;
-    --accent-foreground: 40 30% 95%;
-
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 40 30% 95%;
-
-    --border: 25 20% 22%;
-    --input: 25 20% 22%;
-    --ring: 20 50% 65%;
+    --primary: 55 87% 56%;
+    --primary-foreground: 27 42% 12%;
     
-    --cream: 25 25% 12%;
-    --sepia: 30 30% 40%;
-    --beige: 35 20% 30%;
-    --dusty-pink: 340 25% 30%;
-    --sage: 100 15% 25%;
-    --film-brown: 25 25% 70%;
-    --polaroid-white: 25 25% 15%;
+    --primary-orange: 11 100% 55%;
+    --primary-golden: 43 88% 56%;
+
+    --secondary: 85 44% 49%;
+    --secondary-foreground: 27 42% 12%;
     
-    --sidebar-background: 25 25% 12%;
-    --sidebar-foreground: 40 30% 95%;
-    --sidebar-primary: 20 50% 65%;
-    --sidebar-primary-foreground: 25 25% 12%;
-    --sidebar-accent: 340 25% 30%;
-    --sidebar-accent-foreground: 40 30% 95%;
-    --sidebar-border: 25 20% 22%;
-    --sidebar-ring: 20 50% 65%;
+    --secondary-magenta: 297 96% 52%;
+    --secondary-purple: 260 54% 43%;
+
+    --muted: 192 17% 35%;
+    --muted-foreground: 192 36% 80%;
+
+    --accent: 43 88% 56%;
+    --accent-foreground: 27 42% 12%;
+
+    --destructive: 11 100% 55%;
+    --destructive-foreground: 192 36% 93%;
+
+    --border: 27 42% 22%;
+    --input: 27 42% 22%;
+    --ring: 55 87% 56%;
+    
+    --cream: 27 42% 12%;
+    --sepia: 43 88% 45%;
+    --beige: 192 17% 30%;
+    --dusty-pink: 11 100% 45%;
+    --sage: 85 44% 40%;
+    --film-brown: 192 36% 80%;
+    --polaroid-white: 27 42% 15%;
+    
+    --highlight: 55 87% 56%;
+    --spotlight: 11 100% 55%;
+    
+    --sidebar-background: 27 42% 12%;
+    --sidebar-foreground: 192 36% 93%;
+    --sidebar-primary: 55 87% 56%;
+    --sidebar-primary-foreground: 27 42% 12%;
+    --sidebar-accent: 85 44% 49%;
+    --sidebar-accent-foreground: 27 42% 12%;
+    --sidebar-border: 27 42% 22%;
+    --sidebar-ring: 55 87% 56%;
   }
 }
 
@@ -114,18 +136,30 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     background-image: var(--paper-texture);
     background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
   }
   
+  .font-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-highlight {
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
   .handwritten {
-    font-family: 'Caveat', cursive;
+    font-family: 'Space Mono', monospace;
   }
 }
 
@@ -220,6 +254,25 @@
     @apply handwritten text-lg md:text-xl text-muted-foreground;
   }
   
+  /* Spotlight/Highlight effect */
+  .spotlight {
+    @apply relative inline-block;
+    background: linear-gradient(120deg, hsl(var(--highlight)) 0%, hsl(var(--highlight)) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 85%;
+    padding: 0 0.2em;
+  }
+  
+  .spotlight-alt {
+    @apply relative inline-block;
+    background: linear-gradient(120deg, hsl(var(--spotlight)) 0%, hsl(var(--spotlight)) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 85%;
+    padding: 0 0.2em;
+  }
+  
   /* Sticker effect */
   .sticker {
     @apply inline-block px-4 py-2 bg-accent rounded-full shadow-md transform transition-transform hover:scale-110;
@@ -291,10 +344,23 @@
   .text-sage { color: hsl(var(--sage)); }
   .text-film-brown { color: hsl(var(--film-brown)); }
   
+  .text-primary-orange { color: hsl(var(--primary-orange)); }
+  .text-primary-golden { color: hsl(var(--primary-golden)); }
+  .text-secondary-magenta { color: hsl(var(--secondary-magenta)); }
+  .text-secondary-purple { color: hsl(var(--secondary-purple)); }
+  
+  .bg-primary-orange { background-color: hsl(var(--primary-orange)); }
+  .bg-primary-golden { background-color: hsl(var(--primary-golden)); }
+  .bg-secondary-magenta { background-color: hsl(var(--secondary-magenta)); }
+  .bg-secondary-purple { background-color: hsl(var(--secondary-purple)); }
+  
   .border-cream { border-color: hsl(var(--cream)); }
   .border-sepia { border-color: hsl(var(--sepia)); }
   .border-beige { border-color: hsl(var(--beige)); }
   .border-dusty-pink { border-color: hsl(var(--dusty-pink)); }
   .border-sage { border-color: hsl(var(--sage)); }
   .border-film-brown { border-color: hsl(var(--film-brown)); }
+  
+  .border-primary-orange { border-color: hsl(var(--primary-orange)); }
+  .border-primary-golden { border-color: hsl(var(--primary-golden)); }
 }
