@@ -26,8 +26,9 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-6 py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden">
+        <div className="spotlight-beam spotlight-beam-1" />
+        <div className="spotlight-beam spotlight-beam-2" />
         
         <div className="relative container mx-auto max-w-6xl">
           <div className="text-center mb-12">
@@ -113,8 +114,9 @@ const Home = () => {
       </div>
 
       {/* Product Intro */}
-      <div className="py-24 px-6 bg-gradient-to-b from-background to-cream">
-        <div className="container mx-auto max-w-6xl">
+      <div className="relative py-24 px-6 overflow-hidden">
+        <div className="spotlight-beam spotlight-beam-3" />
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="section-title font-title mb-6">
               What is <span className="spotlight">Viewfinder</span>?

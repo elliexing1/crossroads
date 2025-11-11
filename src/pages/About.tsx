@@ -3,8 +3,10 @@ import { Heart, Target, Lightbulb, Users } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen pt-32 pb-24">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <div className="relative min-h-screen pt-32 pb-24 overflow-hidden">
+      <div className="spotlight-beam spotlight-beam-1" />
+      <div className="spotlight-beam spotlight-beam-2" />
+      <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <span className="sticker text-sm font-highlight">About Us</span>
