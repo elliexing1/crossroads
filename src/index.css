@@ -7,18 +7,18 @@
 @layer base {
   :root {
     /* Crossroads Brand Colors - Dark Theme */
-    --background: 27 42% 17%; /* #3F2C1A dark brown */
+    --background: 204, 22%, 5%; /* #3F2C1A dark brown */
     --foreground: 192 36% 93%; /* #E9F2F4 light blue-gray text */
 
-    --card: 27 42% 20%;
+    --card: 255, 58%, 44%;
     --card-foreground: 192 36% 93%;
 
-    --popover: 27 42% 20%;
+    --popover: 255, 58%, 44%;
     --popover-foreground: 192 36% 93%;
 
     /* Primary Brand Colors */
     --primary: 55 87% 56%; /* #F1E82F bright yellow */
-    --primary-foreground: 27 42% 17%;
+    --primary-foreground: 204, 22%, 5%;
     
     --primary-orange: 11 100% 55%; /* #FF401A red-orange */
     --primary-golden: 43 88% 56%; /* #F3BC2E golden yellow */
@@ -35,7 +35,7 @@
     --muted-foreground: 192 36% 80%;
 
     --accent: 43 88% 56%; /* golden yellow */
-    --accent-foreground: 27 42% 17%;
+    --accent-foreground: 204, 22%, 5%;
 
     --destructive: 11 100% 55%;
     --destructive-foreground: 192 36% 93%;
@@ -47,13 +47,13 @@
     --radius: 1rem;
 
     /* Film-inspired scrapbook colors - dark theme */
-    --cream: 27 42% 17%;
+    --black: 204, 22%, 5%;
     --sepia: 192 36% 93%;
     --beige: 27 42% 30%;
     --dusty-pink: 11 100% 65%;
     --sage: 85 44% 55%;
     --film-brown: 192 17% 50%;
-    --polaroid-white: 27 42% 22%;
+    --polaroid-green: 187, 20%, 26%;
     
     /* Highlight/Spotlight colors */
     --highlight: 55 87% 56%;
@@ -62,10 +62,10 @@
     /* Paper texture overlay */
     --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03' /%3E%3C/svg%3E");
 
-    --sidebar-background: 27 42% 17%;
+    --sidebar-background: 204, 22%, 5%;
     --sidebar-foreground: 192 36% 93%;
     --sidebar-primary: 55 87% 56%;
-    --sidebar-primary-foreground: 27 42% 17%;
+    --sidebar-primary-foreground: 204, 22%, 5%;
     --sidebar-accent: 85 44% 49%;
     --sidebar-accent-foreground: 192 36% 93%;
     --sidebar-border: 27 42% 25%;
@@ -76,10 +76,10 @@
     --background: 27 42% 12%;
     --foreground: 192 36% 93%;
 
-    --card: 27 42% 15%;
+    --card: 255, 58%, 44%
     --card-foreground: 192 36% 93%;
 
-    --popover: 27 42% 15%;
+    --popover: 255, 58%, 44%
     --popover-foreground: 192 36% 93%;
 
     --primary: 55 87% 56%;
@@ -107,13 +107,13 @@
     --input: 27 42% 22%;
     --ring: 55 87% 56%;
     
-    --cream: 27 42% 12%;
+    --black: 27 42% 12%;
     --sepia: 43 88% 45%;
     --beige: 192 17% 30%;
     --dusty-pink: 11 100% 45%;
     --sage: 85 44% 40%;
     --film-brown: 192 36% 80%;
-    --polaroid-white: 27 42% 15%;
+    --polaroid-green: 255, 58%, 44%
     
     --highlight: 55 87% 56%;
     --spotlight: 11 100% 55%;
@@ -433,15 +433,15 @@
   }
   
   /* Custom colors as utilities */
-  .bg-cream { background-color: hsl(var(--cream)); }
+  .bg-cream { background-color: hsl(var(--black)); }
   .bg-sepia { background-color: hsl(var(--sepia)); }
   .bg-beige { background-color: hsl(var(--beige)); }
   .bg-dusty-pink { background-color: hsl(var(--dusty-pink)); }
   .bg-sage { background-color: hsl(var(--sage)); }
   .bg-film-brown { background-color: hsl(var(--film-brown)); }
-  .bg-polaroid-white { background-color: hsl(var(--polaroid-white)); }
+  .bg-polaroid-white { background-color: hsl(var(--polaroid-green)); }
   
-  .text-cream { color: hsl(var(--cream)); }
+  .text-cream { color: hsl(var(--black)); }
   .text-sepia { color: hsl(var(--sepia)); }
   .text-beige { color: hsl(var(--beige)); }
   .text-dusty-pink { color: hsl(var(--dusty-pink)); }
@@ -462,7 +462,7 @@
   .bg-secondary-magenta { background-color: hsl(var(--secondary-magenta)); }
   .bg-secondary-purple { background-color: hsl(var(--secondary-purple)); }
   
-  .border-cream { border-color: hsl(var(--cream)); }
+  .border-cream { border-color: hsl(var(--black)); }
   .border-sepia { border-color: hsl(var(--sepia)); }
   .border-beige { border-color: hsl(var(--beige)); }
   .border-dusty-pink { border-color: hsl(var(--dusty-pink)); }

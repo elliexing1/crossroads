@@ -83,22 +83,6 @@ const Viewfinder = () => {
                 <li>• Build sustainable fan relationships</li>
               </ul>
             </ScrapbookCard>
-
-            <ScrapbookCard variant="polaroid" rotate="right">
-              <div className="aspect-square bg-secondary-magenta/20 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
-                <Film className="text-secondary-magenta z-10" size={48} />
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary-magenta/30 to-transparent" />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">Industry Discovery</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Get discovered by industry professionals looking for new talent
-              </p>
-              <ul className="text-xs space-y-1 text-muted-foreground">
-                <li>• Verified industry member access</li>
-                <li>• Meaningful engagement metrics</li>
-                <li>• Opportunity matching system</li>
-              </ul>
-            </ScrapbookCard>
           </div>
         </div>
 

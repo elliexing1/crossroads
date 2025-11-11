@@ -64,16 +64,6 @@ const About = () => {
                 Artists should control their narrative and build direct relationships with their community
               </p>
             </ScrapbookCard>
-            
-            <ScrapbookCard variant="polaroid" rotate="left">
-              <div className="aspect-square bg-secondary-magenta/20 rounded-lg flex items-center justify-center mb-4">
-                <Users className="text-secondary-magenta" size={48} />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">Community Power</h3>
-              <p className="text-sm text-muted-foreground">
-                A supportive network of creators and viewers elevates everyone and creates real opportunities
-              </p>
-            </ScrapbookCard>
           </div>
           
           <div className="mt-20">

@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Home = () => {
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const { toast } = useToast();
@@ -77,7 +78,18 @@ const Home = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="bg-background border-muted"
+                  className="bg-background border-primary"
+                />
+              </div>
+
+              <div>
+                <Input
+                  type="tel"
+                  placeholder="Your Phone Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="bg-background border-primary"
                 />
               </div>
               
@@ -88,17 +100,16 @@ const Home = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="bg-background border-muted"
+                  className="bg-background border-primary"
                 />
               </div>
               
               <div>
                 <Textarea
-                  placeholder="Tell us about your filmmaking journey (optional)"
+                  placeholder="Referral code (optional)"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  rows={4}
-                  className="bg-background border-muted"
+                  className="bg-background border-primary"
                 />
               </div>
               
