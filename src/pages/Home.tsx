@@ -32,7 +32,7 @@ const Home = () => {
         <div className="spotlight-beam spotlight-beam-2" />
         
         <div className="relative container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <div className="inline-block mb-6">
               <span className="font-highlight text-sm px-4 py-2 bg-primary/20 rounded-full">
                 BY CROSSROADS
@@ -59,8 +59,56 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Product Intro */}
+          <div className="relative py-24 px-6 overflow-hidden">
+            <div className="spotlight-beam spotlight-beam-3" />
+            <div className="container mx-auto max-w-6xl relative z-10">
+              {/* <div className="text-center mb-16">
+                <h2 className="section-title font-title mb-6">
+                  What is <span className="spotlight">Viewfinder</span>?
+                </h2>
+                <p className="text-lg max-w-3xl mx-auto leading-relaxed">
+                  Viewfinder is a creative hub where filmmakers can host their expanding slate, 
+                  access their own private network rolodex, and amass a dedicated audience.
+                </p>
+              </div> */}
+
+              <div className="scrapbook-grid overlap-grid">
+                <ScrapbookCard variant="polaroid" rotate="left">
+                  <div className="aspect-square bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                    <Camera className="text-primary" size={48} />
+                  </div>
+                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
+                  <p className="text-sm text-muted-foreground">
+                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
+                  </p>
+                </ScrapbookCard>
+
+                <ScrapbookCard variant="polaroid" rotate="right">
+                  <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="text-secondary" size={48} />
+                  </div>
+                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
+                  <p className="text-sm text-muted-foreground">
+                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
+                  </p>
+                </ScrapbookCard>
+
+                <ScrapbookCard variant="polaroid" rotate="left">
+                  <div className="aspect-square bg-primary-orange/20 rounded-lg flex items-center justify-center mb-4">
+                    <Film className="text-primary-orange" size={48} />
+                  </div>
+                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
+                  <p className="text-sm text-muted-foreground">
+                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
+                  </p>
+                </ScrapbookCard>
+              </div>
+            </div>
+          </div>
+
           {/* Waitlist Form */}
-          <ScrapbookCard variant="paper" className="max-w-2xl mx-auto mt-16">
+          <ScrapbookCard variant="paper" className="max-w-2xl mx-auto">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-title font-bold mb-3">
                 Join the Waitlist
@@ -121,54 +169,6 @@ const Home = () => {
               </Button>
             </form>
           </ScrapbookCard>
-        </div>
-      </div>
-
-      {/* Product Intro */}
-      <div className="relative py-24 px-6 overflow-hidden">
-        <div className="spotlight-beam spotlight-beam-3" />
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="section-title font-title mb-6">
-              What is <span className="spotlight">Viewfinder</span>?
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-              Viewfinder is a creative hub where filmmakers can host their expanding slate, 
-              access their own private network rolodex, and amass a dedicated audience.
-            </p>
-          </div>
-
-          <div className="scrapbook-grid overlap-grid">
-            <ScrapbookCard variant="polaroid" rotate="left">
-              <div className="aspect-square bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                <Camera className="text-primary" size={48} />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">For Filmmakers</h3>
-              <p className="text-sm text-muted-foreground">
-                Host your slate, build your network, and grow your audience
-              </p>
-            </ScrapbookCard>
-
-            <ScrapbookCard variant="polaroid" rotate="right">
-              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center mb-4">
-                <Users className="text-secondary" size={48} />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">For Viewers</h3>
-              <p className="text-sm text-muted-foreground">
-                Discover and support new artistic voices in filmmaking
-              </p>
-            </ScrapbookCard>
-
-            <ScrapbookCard variant="polaroid" rotate="left">
-              <div className="aspect-square bg-primary-orange/20 rounded-lg flex items-center justify-center mb-4">
-                <Film className="text-primary-orange" size={48} />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">For Industry</h3>
-              <p className="text-sm text-muted-foreground">
-                Identify rising talent through meaningful engagement
-              </p>
-            </ScrapbookCard>
-          </div>
         </div>
       </div>
     </div>
