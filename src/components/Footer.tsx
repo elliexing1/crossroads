@@ -3,39 +3,39 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-border/20 bg-background/95 backdrop-blur-sm mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+    <footer className="relative border-t border-border/10 bg-background/98 backdrop-blur-xl mt-32">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Camera className="h-6 w-6 text-primary-yellow" />
-              <span className="text-xl font-bold font-title">Crossroads</span>
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
+              <Camera className="h-8 w-8 text-primary" />
+              <span className="text-2xl font-bold font-title">Crossroads</span>
             </div>
-            <p className="text-sm text-muted-foreground max-w-xs">
+            <p className="text-muted-foreground leading-relaxed max-w-xs">
               Connecting filmmakers with their audience through authentic storytelling and creative community.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-subtitle text-lg mb-4">Quick Links</h3>
-            <nav className="space-y-2">
+            <h3 className="font-subtitle text-lg font-semibold mb-5">Quick Links</h3>
+            <nav className="space-y-3">
               <Link
                 to="/"
-                className="block text-sm text-muted-foreground hover:text-primary-yellow transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="block text-sm text-muted-foreground hover:text-primary-yellow transition-colors"
+                className="block text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
                 About Us
               </Link>
               <Link
                 to="/viewfinder"
-                className="block text-sm text-muted-foreground hover:text-primary-orange transition-colors"
+                className="block text-muted-foreground hover:text-primary-orange transition-all hover:translate-x-1"
               >
                 Viewfinder
               </Link>
@@ -44,13 +44,13 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-subtitle text-lg mb-4">Get in Touch</h3>
-            <div className="space-y-3">
+            <h3 className="font-subtitle text-lg font-semibold mb-5">Get in Touch</h3>
+            <div className="space-y-4">
               <a
                 href="mailto:hello@crossroads.com"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary-gold transition-colors"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary-gold transition-all hover:translate-x-1"
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-5 w-5" />
                 hello@crossroads.com
               </a>
             </div>
@@ -58,22 +58,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-border/20">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
+        <div className="mt-16 pt-8 border-t border-border/10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p className="text-muted-foreground">
               © {new Date().getFullYear()} Crossroads. All rights reserved.
             </p>
-            <div className="flex items-center gap-4">
-              <span className="text-xs text-muted-foreground font-highlight uppercase tracking-wider">
+            <div className="flex items-center gap-6">
+              <span className="text-xs text-muted-foreground font-highlight uppercase tracking-widest opacity-60">
                 Built for creators
               </span>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative spotlight beam */}
-      <div className="spotlight-beam spotlight-beam-3" />
     </footer>
   );
 };

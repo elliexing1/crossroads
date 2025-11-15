@@ -9,19 +9,19 @@ import {
 
 const Viewfinder = () => {
   return (
-    <div className="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <div className="relative min-h-screen pt-40 pb-32 overflow-hidden">
       <div className="spotlight-beam spotlight-beam-1" />
       <div className="spotlight-beam spotlight-beam-3" />
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         {/* Product Purpose */}
-        <div className="text-center mb-20">
-          <div className="inline-block mb-4">
-            <span className="sticker text-sm font-highlight">The Product</span>
+        <div className="text-center mb-28 space-y-6">
+          <div className="inline-block">
+            <span className="sticker font-highlight">The Product</span>
           </div>
-          <h1 className="section-title font-title mb-6">
+          <h1 className="section-title font-title">
             Welcome to <span className="spotlight">Viewfinder</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="caption max-w-4xl mx-auto">
             Viewfinder creates a <span className="spotlight-alt">viable digital pipeline</span> where filmmakers 
             can build sustainable careers by sharing their journey, connecting with their audience, 
             and being discovered by the industry through meaningful engagement rather than 
@@ -30,59 +30,83 @@ const Viewfinder = () => {
         </div>
 
         {/* Features Section */}
-        <div className="mb-24">
-          <h2 className="text-3xl font-title font-bold text-center mb-12">
+        <div className="mb-32">
+          <h2 className="text-4xl font-title font-bold text-center mb-16">
             Key Features
           </h2>
           
-          <div className="scrapbook-grid overlap-grid">
-            <ScrapbookCard variant="polaroid" rotate="left">
-              <div className="aspect-square bg-primary/20 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
-                <Camera className="text-primary z-10" size={48} />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent" />
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-10 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all hover:scale-[1.02]">
+              <div className="mb-8 p-5 w-fit rounded-2xl bg-primary/10">
+                <Camera className="text-primary" size={40} />
               </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">Creative Hub</h3>
-              <p className="text-sm text-muted-foreground mb-3">
+              <h3 className="text-2xl font-subtitle font-semibold mb-4">Creative Hub</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 Host your expanding slate of projects in one beautiful, organized space
               </p>
-              <ul className="text-xs space-y-1 text-muted-foreground">
-                <li>• Project showcase with media galleries</li>
-                <li>• Progress updates and behind-the-scenes</li>
-                <li>• Customizable portfolio layouts</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Project showcase with media galleries</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Progress updates and behind-the-scenes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>Customizable portfolio layouts</span>
+                </li>
               </ul>
-            </ScrapbookCard>
+            </div>
 
-            <ScrapbookCard variant="polaroid" rotate="right">
-              <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
-                <Users className="text-secondary z-10" size={48} />
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-transparent" />
+            <div className="group p-10 rounded-2xl bg-gradient-to-br from-secondary/5 to-transparent border border-secondary/10 hover:border-secondary/30 transition-all hover:scale-[1.02]">
+              <div className="mb-8 p-5 w-fit rounded-2xl bg-secondary/10">
+                <Users className="text-secondary" size={40} />
               </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">Private Network</h3>
-              <p className="text-sm text-muted-foreground mb-3">
+              <h3 className="text-2xl font-subtitle font-semibold mb-4">Private Network</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 Build and manage your personal industry rolodex
               </p>
-              <ul className="text-xs space-y-1 text-muted-foreground">
-                <li>• Connect with collaborators and crew</li>
-                <li>• Organize contacts by project or role</li>
-                <li>• Direct messaging and collaboration tools</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">•</span>
+                  <span>Connect with collaborators and crew</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">•</span>
+                  <span>Organize contacts by project or role</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary mt-1">•</span>
+                  <span>Direct messaging and collaboration tools</span>
+                </li>
               </ul>
-            </ScrapbookCard>
+            </div>
 
-            <ScrapbookCard variant="polaroid" rotate="left">
-              <div className="aspect-square bg-primary-orange/20 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
-                <TrendingUp className="text-primary-orange z-10" size={48} />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-orange/30 to-transparent" />
+            <div className="group p-10 rounded-2xl bg-gradient-to-br from-primary-orange/5 to-transparent border border-primary-orange/10 hover:border-primary-orange/30 transition-all hover:scale-[1.02]">
+              <div className="mb-8 p-5 w-fit rounded-2xl bg-primary-orange/10">
+                <TrendingUp className="text-primary-orange" size={40} />
               </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-2">Audience Growth</h3>
-              <p className="text-sm text-muted-foreground mb-3">
+              <h3 className="text-2xl font-subtitle font-semibold mb-4">Audience Growth</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 Grow a dedicated audience that follows your creative journey
               </p>
-              <ul className="text-xs space-y-1 text-muted-foreground">
-                <li>• Follower insights and analytics</li>
-                <li>• Engage with supporters directly</li>
-                <li>• Build sustainable fan relationships</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary-orange mt-1">•</span>
+                  <span>Analytics and engagement insights</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary-orange mt-1">•</span>
+                  <span>Direct connection with your fans</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary-orange mt-1">•</span>
+                  <span>Build sustainable creative income</span>
+                </li>
               </ul>
-            </ScrapbookCard>
+            </div>
           </div>
         </div>
 
