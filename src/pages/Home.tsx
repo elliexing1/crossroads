@@ -27,82 +27,69 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-6 py-24 overflow-hidden">
+      <div className="relative min-h-screen flex items-center justify-center px-6 py-32 overflow-hidden">
         <div className="spotlight-beam spotlight-beam-1" />
         <div className="spotlight-beam spotlight-beam-2" />
         
-        <div className="relative container mx-auto max-w-6xl">
-          <div className="text-center">
-            <div className="inline-block mb-6">
-              <span className="font-highlight text-sm px-4 py-2 bg-primary/20 rounded-full">
+        <div className="relative container mx-auto max-w-7xl z-10">
+          <div className="text-center space-y-8">
+            <div className="inline-block">
+              <span className="sticker font-highlight">
                 BY CROSSROADS
               </span>
             </div>
-            <h1 className="hero-title font-title mb-6">
+            <h1 className="hero-title font-title">
               <span className="spotlight">Viewfinder</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="caption max-w-4xl mx-auto">
               A mobile-first platform designed to create a <span className="spotlight-alt">viable digital pipeline</span> for filmmakers to build in public and leverage their growth into a sustainable career.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center items-center text-sm font-highlight">
-              <span className="flex items-center gap-2">
-                <Camera size={16} /> Creative Hub
+            <div className="flex flex-wrap gap-6 justify-center items-center pt-4 text-sm font-medium opacity-80">
+              <span className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Camera size={18} /> Creative Hub
               </span>
-              <span>•</span>
-              <span className="flex items-center gap-2">
-                <Users size={16} /> Private Network
+              <span className="text-muted-foreground/50">•</span>
+              <span className="flex items-center gap-2 hover:text-secondary-magenta transition-colors">
+                <Users size={18} /> Private Network
               </span>
-              <span>•</span>
-              <span className="flex items-center gap-2">
-                <TrendingUp size={16} /> Audience Growth
+              <span className="text-muted-foreground/50">•</span>
+              <span className="flex items-center gap-2 hover:text-primary-orange transition-colors">
+                <TrendingUp size={18} /> Audience Growth
               </span>
             </div>
           </div>
 
-          {/* Product Intro */}
-          <div className="relative py-24 px-6 overflow-hidden">
-            <div className="spotlight-beam spotlight-beam-3" />
-            <div className="container mx-auto max-w-6xl relative z-10">
-              {/* <div className="text-center mb-16">
-                <h2 className="section-title font-title mb-6">
-                  What is <span className="spotlight">Viewfinder</span>?
-                </h2>
-                <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-                  Viewfinder is a creative hub where filmmakers can host their expanding slate, 
-                  access their own private network rolodex, and amass a dedicated audience.
+          {/* Feature Preview Section */}
+          <div className="mt-32 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/10 hover:border-primary/30 transition-all hover:scale-[1.02]">
+                <div className="mb-6 p-4 w-fit rounded-xl bg-primary/10">
+                  <Camera className="text-primary" size={32} />
+                </div>
+                <h3 className="text-xl font-subtitle font-semibold mb-3">Creative Hub</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Showcase your projects with beautiful galleries and progress updates
                 </p>
-              </div> */}
+              </div>
 
-              <div className="scrapbook-grid overlap-grid">
-                <ScrapbookCard variant="polaroid" rotate="left">
-                  <div className="aspect-square bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                    <Camera className="text-primary" size={48} />
-                  </div>
-                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
-                  <p className="text-sm text-muted-foreground">
-                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
-                  </p>
-                </ScrapbookCard>
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-secondary-magenta/5 to-transparent border border-secondary-magenta/10 hover:border-secondary-magenta/30 transition-all hover:scale-[1.02]">
+                <div className="mb-6 p-4 w-fit rounded-xl bg-secondary-magenta/10">
+                  <Users className="text-secondary-magenta" size={32} />
+                </div>
+                <h3 className="text-xl font-subtitle font-semibold mb-3">Private Network</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Build your personal industry rolodex and collaborate seamlessly
+                </p>
+              </div>
 
-                <ScrapbookCard variant="polaroid" rotate="right">
-                  <div className="aspect-square bg-secondary/20 rounded-lg flex items-center justify-center mb-4">
-                    <Users className="text-secondary" size={48} />
-                  </div>
-                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
-                  <p className="text-sm text-muted-foreground">
-                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
-                  </p>
-                </ScrapbookCard>
-
-                <ScrapbookCard variant="polaroid" rotate="left">
-                  <div className="aspect-square bg-primary-orange/20 rounded-lg flex items-center justify-center mb-4">
-                    <Film className="text-primary-orange" size={48} />
-                  </div>
-                  <h3 className="text-xl font-subtitle font-semibold mb-2">PLACEHOLDER</h3>
-                  <p className="text-sm text-muted-foreground">
-                    I would rather this chunk of the page be a scrapbook style photo feature demo thingie
-                  </p>
-                </ScrapbookCard>
+              <div className="group p-8 rounded-2xl bg-gradient-to-br from-primary-orange/5 to-transparent border border-primary-orange/10 hover:border-primary-orange/30 transition-all hover:scale-[1.02]">
+                <div className="mb-6 p-4 w-fit rounded-xl bg-primary-orange/10">
+                  <TrendingUp className="text-primary-orange" size={32} />
+                </div>
+                <h3 className="text-xl font-subtitle font-semibold mb-3">Audience Growth</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cultivate a dedicated community that follows your creative journey
+                </p>
               </div>
             </div>
           </div>
