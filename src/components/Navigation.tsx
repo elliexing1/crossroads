@@ -10,10 +10,11 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center gap-3 group">
-            <Camera className="text-primary transition-all group-hover:scale-110 group-hover:rotate-6" size={32} />
-            <span className="text-2xl font-title font-bold tracking-tight">
-              Crossroads
-            </span>
+            <img 
+              src="/placeholder-logo.png" 
+              alt="Crossroads Logo" 
+              className="h-10 w-auto transition-all group-hover:scale-110"
+            />
           </NavLink>
 
           {/* Desktop Navigation */}
