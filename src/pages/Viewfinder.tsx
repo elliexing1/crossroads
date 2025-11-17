@@ -1,5 +1,10 @@
 import { Camera, Users, TrendingUp, Plus, Eye, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import {
   Accordion,
   AccordionContent,
@@ -8,30 +13,132 @@ import {
 } from "@/components/ui/accordion";
 
 const Viewfinder = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [betaUser, setBetaUser] = useState(false);
+  const [referralCode, setReferralCode] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log({ name, email, phone, betaUser, referralCode });
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="spotlight-beam spotlight-beam-1" />
       <div className="spotlight-beam spotlight-beam-3" />
       
-      {/* Hero */}
-      <section className="relative pt-40 pb-32">
+      {/* Hero with Waitlist */}
+      <section className="relative pt-32 pb-24">
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-5xl mx-auto space-y-8"
-          >
-            <span className="sticker inline-block">The Product</span>
-            <h1 className="section-title font-title">
-              Welcome to <span className="spotlight">Viewfinder</span>
-            </h1>
-            <p className="text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-              Viewfinder creates a <span className="spotlight-alt">viable digital pipeline</span> where 
-              filmmakers can build sustainable careers by sharing their journey, connecting with 
-              their audience, and being discovered by the industry through meaningful engagement.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+            {/* Left: Intro & Tagline */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              <span className="sticker inline-block">The Product</span>
+              <h1 className="text-6xl lg:text-7xl font-title font-bold leading-tight">
+                Welcome to <span className="spotlight">Viewfinder</span>
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Viewfinder creates a <span className="spotlight-alt">viable digital pipeline</span> where 
+                filmmakers can build sustainable careers by sharing their journey, connecting with 
+                their audience, and being discovered by the industry through meaningful engagement.
+              </p>
+            </motion.div>
+
+            {/* Right: Waitlist Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
+              <div className="relative p-10 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50">
+                <h3 className="text-3xl font-title font-bold mb-2">Join the Waitlist</h3>
+                <p className="text-muted-foreground mb-8">Be among the first to access Viewfinder</p>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Your full name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="bg-background/50 border-border/50"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="bg-background/50 border-border/50"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                      className="bg-background/50 border-border/50"
+                    />
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <Checkbox
+                      id="beta"
+                      checked={betaUser}
+                      onCheckedChange={(checked) => setBetaUser(checked as boolean)}
+                    />
+                    <Label htmlFor="beta" className="cursor-pointer font-normal">
+                      Want to be a beta user?
+                    </Label>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="referral" className="text-muted-foreground">
+                      Optional: Referral code
+                    </Label>
+                    <Input
+                      id="referral"
+                      type="text"
+                      placeholder="Enter referral code"
+                      value={referralCode}
+                      onChange={(e) => setReferralCode(e.target.value)}
+                      className="bg-background/50 border-border/50"
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-gradient-to-r from-primary to-primary-orange hover:opacity-90 transition-opacity"
+                  >
+                    Join Waitlist
+                  </Button>
+                </form>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

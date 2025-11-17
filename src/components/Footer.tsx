@@ -1,5 +1,6 @@
-import { Camera, Mail } from "lucide-react";
+import { Camera, Mail, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -67,6 +68,35 @@ const Footer = () => {
               <span className="text-xs text-muted-foreground font-highlight uppercase tracking-widest opacity-60">
                 Built for creators
               </span>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} />
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok size={20} />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={20} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
