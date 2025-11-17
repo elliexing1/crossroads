@@ -1,5 +1,10 @@
 import { Heart, Target, Lightbulb, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const About = () => {
   return (
@@ -166,28 +171,66 @@ const About = () => {
 
       {/* Team */}
       <section className="relative py-32">
-        <div className="container mx-auto px-6 relative z-10 max-w-4xl">
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            className="text-center mb-20"
           >
-            <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-to-br from-secondary-magenta/20 via-secondary-purple/20 to-transparent rounded-[3rem] blur-3xl" />
-              <div className="relative p-12 md:p-16 rounded-3xl bg-card/50 backdrop-blur-2xl border border-secondary-magenta/20 text-center space-y-8">
-                <h2 className="text-4xl font-title font-bold">The Team</h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Crossroads is built by filmmakers, for filmmakers. Our team combines 
-                  decades of experience in film production, technology, and community 
-                  building to create a platform that truly serves the creative community.
-                </p>
-                <p className="text-muted-foreground font-medium italic">
-                  More about our team coming soon
-                </p>
-              </div>
-            </div>
+            <h2 className="text-5xl font-title font-bold mb-6">
+              Meet the Team
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Crossroads is built by filmmakers, for filmmakers. Our team combines 
+              decades of experience in film production, technology, and community building.
+            </p>
           </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              { name: "John Smith", role: "Founder & CEO", bio: "Award-winning filmmaker with 15+ years in the industry" },
+              { name: "Sarah Johnson", role: "Head of Product", bio: "Product designer passionate about creator tools" },
+              { name: "Michael Chen", role: "Lead Engineer", bio: "Full-stack developer building scalable platforms" },
+              { name: "Emily Davis", role: "Community Manager", bio: "Connecting creators and building community" },
+              { name: "David Wilson", role: "Creative Director", bio: "Visual storyteller and brand strategist" },
+              { name: "Lisa Anderson", role: "Head of Marketing", bio: "Growth expert helping creators reach their audience" },
+            ].map((member, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <HoverCard>
+                  <HoverCardTrigger asChild>
+                    <div className="group cursor-pointer">
+                      <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                        <img
+                          src={`/placeholder-team-${i + 1}.jpg`}
+                          alt={member.name}
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <h3 className="text-xl font-title font-bold mb-1">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 bg-card/95 backdrop-blur-xl border-border/50">
+                    <div className="space-y-2">
+                      <h4 className="text-lg font-title font-bold">{member.name}</h4>
+                      <p className="text-sm text-primary font-medium">{member.role}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed pt-2">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
