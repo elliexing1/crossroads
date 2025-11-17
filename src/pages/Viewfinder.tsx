@@ -40,7 +40,7 @@ const Viewfinder = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <span className="sticker inline-block">The Product</span>
+              <span className="sticker inline-block">From CrossRoads</span>
               <h1 className="text-6xl lg:text-7xl font-title font-bold leading-tight">
                 Welcome to <span className="spotlight">Viewfinder</span>
               </h1>
