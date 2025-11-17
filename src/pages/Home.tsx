@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Camera, Users, TrendingUp, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -9,7 +8,9 @@ import { motion } from "framer-motion";
 const Home = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("");
+  const [betaUser, setBetaUser] = useState(false);
+  const [referralCode, setReferralCode] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +21,9 @@ const Home = () => {
     });
     setEmail("");
     setName("");
-    setMessage("");
+    setPhone("");
+    setBetaUser(false);
+    setReferralCode("");
   };
 
   return (
@@ -28,73 +31,112 @@ const Home = () => {
       <div className="spotlight-beam spotlight-beam-1" />
       <div className="spotlight-beam spotlight-beam-2" />
       
-      {/* Hero Section - Asymmetric Layout */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      {/* Hero Section - Compact */}
+      <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Main content */}
-            <motion.div 
-              className="lg:col-span-7 space-y-8"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-block">
-                <span className="sticker font-highlight text-xs">BY CROSSROADS</span>
-              </div>
-              
-              <h1 className="hero-title font-title leading-[0.9]">
-                <span className="spotlight block">Viewfinder</span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl leading-relaxed max-w-2xl">
-                A mobile-first platform designed to create a{" "}
-                <span className="spotlight-alt">viable digital pipeline</span> for 
-                filmmakers to build in public and leverage their growth into sustainable careers.
-              </p>
+          <motion.div 
+            className="text-center max-w-4xl mx-auto space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="inline-block">
+              <span className="sticker font-highlight text-xs">BY CROSSROADS</span>
+            </div>
+            
+            <h1 className="hero-title font-title leading-[0.9]">
+              <span className="spotlight block">Viewfinder</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl leading-relaxed">
+              A mobile-first platform designed to create a{" "}
+              <span className="spotlight-alt">viable digital pipeline</span> for 
+              filmmakers to build in public and leverage their growth into sustainable careers.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-              <div className="flex flex-wrap gap-8 pt-4">
-                <div className="flex items-center gap-3 group cursor-default">
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all">
-                    <Camera className="text-primary" size={24} />
-                  </div>
-                  <span className="font-medium">Creative Hub</span>
+      {/* Waitlist - Featured Section */}
+      <section className="relative py-16 overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative">
+              <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-secondary-magenta/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
+              <div className="relative p-12 md:p-16 rounded-3xl bg-card/50 backdrop-blur-2xl border border-border/30">
+                <div className="text-center mb-12 space-y-6">
+                  <span className="sticker inline-block">Join the Waitlist</span>
+                  <h2 className="section-title font-title">
+                    Be part of the <span className="spotlight">movement</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Get early access to Viewfinder and start building your creative legacy
+                  </p>
                 </div>
-                <div className="flex items-center gap-3 group cursor-default">
-                  <div className="p-3 rounded-xl bg-secondary-magenta/10 group-hover:bg-secondary-magenta/20 transition-all">
-                    <Users className="text-secondary-magenta" size={24} />
-                  </div>
-                  <span className="font-medium">Private Network</span>
-                </div>
-                <div className="flex items-center gap-3 group cursor-default">
-                  <div className="p-3 rounded-xl bg-primary-orange/10 group-hover:bg-primary-orange/20 transition-all">
-                    <TrendingUp className="text-primary-orange" size={24} />
-                  </div>
-                  <span className="font-medium">Audience Growth</span>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* Right: Floating card */}
-            <motion.div 
-              className="lg:col-span-5"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-secondary-magenta/20 to-primary-orange/20 rounded-3xl blur-2xl" />
-                <div className="relative p-8 rounded-2xl bg-card/40 backdrop-blur-xl border border-border/30">
-                  <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-primary/20 via-secondary-magenta/20 to-secondary-purple/20 flex items-center justify-center overflow-hidden">
-                    <div className="text-center space-y-4 p-8">
-                      <Camera className="mx-auto text-primary" size={64} />
-                      <p className="text-lg font-medium">Your creative journey starts here</p>
-                    </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input
+                      type="text"
+                      placeholder="Your name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
+                    />
+                    <Input
+                      type="email"
+                      placeholder="Your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
+                    />
                   </div>
-                </div>
+                  <Input
+                    type="tel"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
+                  />
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-background/60 border border-border/50">
+                    <input
+                      type="checkbox"
+                      id="betaUser"
+                      checked={betaUser}
+                      onChange={(e) => setBetaUser(e.target.checked)}
+                      className="w-5 h-5 rounded border-border/50 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="betaUser" className="text-lg cursor-pointer">
+                      Want to be a beta user?
+                    </label>
+                  </div>
+                  <Input
+                    type="text"
+                    placeholder="Optional: Referral code"
+                    value={referralCode}
+                    onChange={(e) => setReferralCode(e.target.value)}
+                    className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
+                  />
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full h-16 bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta hover:opacity-90 text-background font-semibold text-lg shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all"
+                  >
+                    Join the Waitlist
+                    <ArrowRight className="ml-2" size={20} />
+                  </Button>
+                </form>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -240,67 +282,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Waitlist - Centered with floating effect */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative">
-              <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-secondary-magenta/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
-              <div className="relative p-12 md:p-16 rounded-3xl bg-card/50 backdrop-blur-2xl border border-border/30">
-                <div className="text-center mb-12 space-y-6">
-                  <span className="sticker inline-block">Join the Waitlist</span>
-                  <h2 className="section-title font-title">
-                    Be part of the <span className="spotlight">movement</span>
-                  </h2>
-                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Get early access to Viewfinder and start building your creative legacy
-                  </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <Input
-                      type="text"
-                      placeholder="Your name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                    />
-                    <Input
-                      type="email"
-                      placeholder="Your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                    />
-                  </div>
-                  <Textarea
-                    placeholder="Tell us about your work (optional)"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="bg-background/60 border-border/50 focus:border-primary min-h-[140px] resize-none text-lg"
-                  />
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full h-16 bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta hover:opacity-90 text-background font-semibold text-lg shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all"
-                  >
-                    Join the Waitlist
-                    <ArrowRight className="ml-2" size={20} />
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
