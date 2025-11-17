@@ -1,4 +1,4 @@
-import { Camera, Mail, Instagram, Linkedin } from "lucide-react";
+import { Mail, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FaTiktok } from "react-icons/fa";
 
@@ -9,10 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           {/* Brand */}
           <div className="space-y-5">
-            <div className="flex items-center gap-3">
-              <Camera className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold font-title">Crossroads</span>
-            </div>
+              <img 
+              src="/src/assets/logo.png" 
+              alt="Crossroads Logo" 
+              className="h-10 w-auto transition-all group-hover:scale-110"
+              />
             <p className="text-muted-foreground leading-relaxed max-w-xs">
               Connecting filmmakers with their audience through authentic storytelling and creative community.
             </p>
@@ -32,14 +33,14 @@ const Footer = () => {
                 to="/about"
                 className="block text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
-                About Us
+                About
               </Link>
-              <Link
+              {/* <Link
                 to="/viewfinder"
                 className="block text-muted-foreground hover:text-primary-orange transition-all hover:translate-x-1"
               >
                 Viewfinder
-              </Link>
+              </Link> */}
             </nav>
           </div>
 
@@ -55,20 +56,7 @@ const Footer = () => {
                 hello@crossroads.com
               </a>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/10">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-            <p className="text-muted-foreground">
-              © {new Date().getFullYear()} Crossroads. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <span className="text-xs text-muted-foreground font-highlight uppercase tracking-widest opacity-60">
-                Built for creators
-              </span>
-              <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mt-4">
                 <a
                   href="https://instagram.com"
                   target="_blank"
@@ -97,6 +85,19 @@ const Footer = () => {
                   <Linkedin size={20} />
                 </a>
               </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-border/10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p className="text-muted-foreground">
+              © {new Date().getFullYear()} Crossroads. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <span className="text-xs text-muted-foreground font-highlight uppercase tracking-widest opacity-60">
+                Built for creators
+              </span>
             </div>
           </div>
         </div>

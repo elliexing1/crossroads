@@ -1,38 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Camera, Users, TrendingUp, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [betaUser, setBetaUser] = useState(false);
-  const [referralCode, setReferralCode] = useState("");
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Thanks for joining!",
-      description: "We'll be in touch soon about Viewfinder.",
-    });
-    setEmail("");
-    setName("");
-    setPhone("");
-    setBetaUser(false);
-    setReferralCode("");
-  };
-
   return (
     <div className="min-h-screen relative">
       <div className="spotlight-beam spotlight-beam-1" />
       <div className="spotlight-beam spotlight-beam-2" />
       
       {/* Hero Section - Compact */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-8 overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto space-y-6"
@@ -53,95 +31,25 @@ const Home = () => {
               <span className="spotlight-alt">viable digital pipeline</span> for 
               filmmakers to build in public and leverage their growth into sustainable careers.
             </p>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Waitlist - Featured Section */}
-      <section className="relative py-16 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative">
-              <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-secondary-magenta/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
-              <div className="relative p-12 md:p-16 rounded-3xl bg-card/50 backdrop-blur-2xl border border-border/30">
-                <div className="text-center mb-12 space-y-6">
-                  <span className="sticker inline-block">Join the Waitlist</span>
-                  <h2 className="section-title font-title">
-                    Be part of the <span className="spotlight">movement</span>
-                  </h2>
-                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Get early access to Viewfinder and start building your creative legacy
-                  </p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <Input
-                      type="text"
-                      placeholder="Your name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                    />
-                    <Input
-                      type="email"
-                      placeholder="Your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                    />
-                  </div>
-                  <Input
-                    type="tel"
-                    placeholder="Phone number"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                    className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                  />
-                  <div className="flex items-center gap-3 p-4 rounded-xl bg-background/60 border border-border/50">
-                    <input
-                      type="checkbox"
-                      id="betaUser"
-                      checked={betaUser}
-                      onChange={(e) => setBetaUser(e.target.checked)}
-                      className="w-5 h-5 rounded border-border/50 text-primary focus:ring-primary"
-                    />
-                    <label htmlFor="betaUser" className="text-lg cursor-pointer">
-                      Want to be a beta user?
-                    </label>
-                  </div>
-                  <Input
-                    type="text"
-                    placeholder="Optional: Referral code"
-                    value={referralCode}
-                    onChange={(e) => setReferralCode(e.target.value)}
-                    className="h-14 bg-background/60 border-border/50 focus:border-primary text-lg"
-                  />
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full h-16 bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta hover:opacity-90 text-background font-semibold text-lg shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all"
-                  >
-                    Join the Waitlist
-                    <ArrowRight className="ml-2" size={20} />
-                  </Button>
-                </form>
-              </div>
+            {/* New Button Under Tagline */}
+            <div className="pt-4">
+              <Link to="/viewfinder">
+                <Button
+                  size="lg"
+                  className="h-14 px-8 bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta hover:opacity-90 text-background font-semibold text-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all"
+                >
+                  Join the Waitlist
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features - Staggered Layout */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 overflow-hidden">
         <div className="spotlight-beam spotlight-beam-3" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div

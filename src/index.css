@@ -7,25 +7,25 @@
 @layer base {
   :root {
     /* Modern Dark Theme with Brand Colors */
-    --background: 27 42% 8%; /* Rich dark brown base */
+    --background: 204 22% 5%; /* Rich dark brown base */
     --foreground: 192 20% 96%; /* Crisp light text */
 
-    --card: 27 42% 12%;
+    --card: 204 22% 5%;
     --card-foreground: 192 20% 96%;
 
-    --popover: 27 42% 12%;
+    --popover: 204 22% 5%;
     --popover-foreground: 192 20% 96%;
 
     /* Refined Primary Colors */
     --primary: 55 88% 58%; /* #F1E82F bright yellow */
-    --primary-foreground: 27 42% 8%;
+    --primary-foreground: 204 22% 5%;
     
     --primary-orange: 11 100% 60%; /* #FF401A vibrant orange */
     --primary-golden: 43 90% 62%; /* #F3BC2E warm gold */
 
     /* Elegant Secondary Colors */
     --secondary: 85 42% 52%; /* #83B446 balanced green */
-    --secondary-foreground: 27 42% 8%;
+    --secondary-foreground: 204 22% 5%;
     
     --secondary-magenta: 297 92% 56%; /* #FA0CFE electric magenta */
     --secondary-purple: 260 58% 48%; /* #502FAF deep purple */
@@ -35,7 +35,7 @@
     --muted-foreground: 192 20% 72%;
 
     --accent: 43 90% 62%;
-    --accent-foreground: 27 42% 8%;
+    --accent-foreground: 204 22% 5%;
 
     --destructive: 11 100% 60%;
     --destructive-foreground: 192 20% 96%;
@@ -69,7 +69,7 @@
   }
 
   .dark {
-    --background: 27 42% 12%;
+    --background: 204 22% 5%;
     --foreground: 192 36% 93%;
 
     --card: 255, 58%, 44%
@@ -79,13 +79,13 @@
     --popover-foreground: 192 36% 93%;
 
     --primary: 55 87% 56%;
-    --primary-foreground: 27 42% 12%;
+    --primary-foreground: 204 22% 5%;
     
     --primary-orange: 11 100% 55%;
     --primary-golden: 43 88% 56%;
 
     --secondary: 85 44% 49%;
-    --secondary-foreground: 27 42% 12%;
+    --secondary-foreground: 204 22% 5%;
     
     --secondary-magenta: 297 96% 52%;
     --secondary-purple: 260 54% 43%;
@@ -94,7 +94,7 @@
     --muted-foreground: 192 36% 80%;
 
     --accent: 43 88% 56%;
-    --accent-foreground: 27 42% 12%;
+    --accent-foreground: 204 22% 5%;
 
     --destructive: 11 100% 55%;
     --destructive-foreground: 192 36% 93%;
@@ -103,7 +103,7 @@
     --input: 27 42% 22%;
     --ring: 55 87% 56%;
     
-    --black: 27 42% 12%;
+    --black: 204 22% 5%;
     --sepia: 43 88% 45%;
     --beige: 192 17% 30%;
     --dusty-pink: 11 100% 45%;
@@ -114,12 +114,12 @@
     --highlight: 55 87% 56%;
     --spotlight: 11 100% 55%;
     
-    --sidebar-background: 27 42% 12%;
+    --sidebar-background: 204 22% 5%;
     --sidebar-foreground: 192 36% 93%;
     --sidebar-primary: 55 87% 56%;
-    --sidebar-primary-foreground: 27 42% 12%;
+    --sidebar-primary-foreground: 204 22% 5%;
     --sidebar-accent: 85 44% 49%;
-    --sidebar-accent-foreground: 27 42% 12%;
+    --sidebar-accent-foreground: 204 22% 5%;
     --sidebar-border: 27 42% 22%;
     --sidebar-ring: 55 87% 56%;
   }

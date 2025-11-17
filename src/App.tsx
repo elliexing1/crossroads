@@ -22,9 +22,10 @@ const App = () => (
         <FilmScene3D />
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Viewfinder />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
-          <Route path="/viewfinder" element={<Viewfinder />} />
+          {/* <Route path="/viewfinder" element={<Viewfinder />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

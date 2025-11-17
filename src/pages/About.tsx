@@ -23,7 +23,7 @@ const About = () => {
           >
             <span className="sticker inline-block">About Us</span>
             <h1 className="section-title font-title">
-              Meet <span className="spotlight">Crossroads</span>
+              Meet <span className="spotlight">CrossRoads</span>
             </h1>
             <p className="text-2xl text-muted-foreground leading-relaxed">
               Building the future of filmmaking through transparency and community
@@ -46,21 +46,22 @@ const About = () => {
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-3 p-4 rounded-2xl bg-primary/10">
                   <Sparkles className="text-primary" size={32} />
-                  <span className="text-xl font-title font-bold">Our Purpose</span>
+                  <span className="text-xl font-title font-bold">Our Story</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-title font-bold leading-tight">
                   Empowering filmmakers to{" "}
-                  <span className="spotlight">build in public</span>
+                  <span className="spotlight">build creatively</span>
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Crossroads exists to transform creative vision into sustainable careers. 
-                  We believe that the future of filmmaking belongs to those brave enough 
-                  to share their journey and connect authentically with their audience.
+                  CrossRoads was born from the frustration of filmmakers trying to break 
+                  through an industry everyone says is running on fumes, where innovation 
+                  is labeled as risk rather than potential.
                 </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  By providing the tools and platform for transparent, community-driven 
-                  creation, we're redefining what it means to be a successful filmmaker 
-                  in the digital age.
+                  Viewfinder is the product of countless conversations with fellow filmmakers 
+                  about the consequences of being forced to play by the rules of social media. 
+                  We founded CrossRoads out of sheer determination to build the pathways we 
+                  need as filmmakers in order to keep creating work we believe in.
                 </p>
               </div>
             </motion.div>
@@ -182,19 +183,16 @@ const About = () => {
               Meet the Team
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Crossroads is built by filmmakers, for filmmakers. Our team combines 
+              CrossRoads is built by filmmakers, for filmmakers. Our team combines 
               decades of experience in film production, technology, and community building.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { name: "John Smith", role: "Founder & CEO", bio: "Award-winning filmmaker with 15+ years in the industry" },
-              { name: "Sarah Johnson", role: "Head of Product", bio: "Product designer passionate about creator tools" },
-              { name: "Michael Chen", role: "Lead Engineer", bio: "Full-stack developer building scalable platforms" },
-              { name: "Emily Davis", role: "Community Manager", bio: "Connecting creators and building community" },
-              { name: "David Wilson", role: "Creative Director", bio: "Visual storyteller and brand strategist" },
-              { name: "Lisa Anderson", role: "Head of Marketing", bio: "Growth expert helping creators reach their audience" },
+              { name: "Caroline McDonald", role: "Co-Founder & CEO", bio: "PLACEHOLDER BIO!" },
+              { name: "Melanie Limas An", role: "Co-Founder & COO", bio: "PLACEHOLDER BIO!" },
+              { name: "John Doe", role: "Lead Engineer", bio: "PLACEHOLDER BIO!" },
             ].map((member, i) => (
               <motion.div
                 key={i}
@@ -203,19 +201,17 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <HoverCard>
+                <HoverCard openDelay={100} closeDelay={50}>
                   <HoverCardTrigger asChild>
                     <div className="group cursor-pointer">
                       <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
                         <img
-                          src={`/placeholder-team-${i + 1}.jpg`}
+                          src={`/src/assets/team-${i + 1}.jpg`}
                           alt={member.name}
                           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
-                      <h3 className="text-xl font-title font-bold mb-1">{member.name}</h3>
-                      <p className="text-sm text-muted-foreground">{member.role}</p>
                     </div>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-80 bg-card/95 backdrop-blur-xl border-border/50">
