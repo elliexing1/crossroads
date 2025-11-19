@@ -50,7 +50,7 @@ const Footer = () => {
             <div className="space-y-4">
               <a
                 href="mailto:hello@crossroads.com"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary-gold transition-all hover:translate-x-1"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
                 <Mail className="h-5 w-5" />
                 hello@crossroads.com
@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-border/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
             <p className="text-muted-foreground">
-              © {new Date().getFullYear()} Crossroads. All rights reserved.
+              © {new Date().getFullYear()} CrossRoads. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <span className="text-xs text-muted-foreground font-highlight uppercase tracking-widest opacity-60">

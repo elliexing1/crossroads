@@ -22,14 +22,14 @@ const Navigation = () => {
             <NavLink
               to="/"
               className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10"
-              activeClassName="bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta text-background font-semibold shadow-lg"
+              activeClassName="bg-gradient-to-r from-primary to-primary-orange text-background font-semibold shadow-lg"
             >
               Home
             </NavLink>
             <NavLink
               to="/about"
               className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-secondary/10"
-              activeClassName="bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta text-background font-semibold shadow-lg"
+              activeClassName="bg-gradient-to-r from-primary to-primary-orange text-background font-semibold shadow-lg"
             >
               About
             </NavLink>
