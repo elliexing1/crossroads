@@ -111,10 +111,9 @@ const About = () => {
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-primary/10">
                   <Heart className="text-primary" size={40} />
                 </div>
-                <h3 className="text-2xl font-title font-bold mb-4">Authenticity First</h3>
+                <h3 className="text-2xl font-title font-bold mb-4">Respect The Craft</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We prioritize genuine connections over viral moments and meaningful 
-                  engagement over algorithmic manipulation.
+                  Placeholder description. idk what they want us to do with the bullet points atm.
                 </p>
               </div>
             </motion.div>
@@ -131,7 +130,7 @@ const About = () => {
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-secondary/10">
                   <Target className="text-secondary" size={40} />
                 </div>
-                <h3 className="text-2xl font-title font-bold mb-4">Transparency</h3>
+                <h3 className="text-2xl font-title font-bold mb-4">Innovation Is For The People</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Building in public means celebrating wins, sharing struggles, and 
                   inviting your audience into the creative process.
@@ -151,7 +150,7 @@ const About = () => {
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-primary-orange/10">
                   <Lightbulb className="text-primary-orange" size={40} />
                 </div>
-                <h3 className="text-2xl font-title font-bold mb-4">Creative Freedom</h3>
+                <h3 className="text-2xl font-title font-bold mb-4">Evolve Fast; Endure Long-Term</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Artists should control their narrative and build direct relationships 
                   with their community.
@@ -175,8 +174,8 @@ const About = () => {
               Meet the Team
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              CrossRoads is built by filmmakers, for filmmakers. Our team combines 
-              decades of experience in film production, technology, and community building.
+              CrossRoads is built <span className="spotlight">by filmmakers, for filmmakers. </span>Our team combines 
+              experience across film production, technology, and community building.
             </p>
           </motion.div>
 

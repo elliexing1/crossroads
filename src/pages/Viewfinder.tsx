@@ -40,9 +40,10 @@ const Viewfinder = () => {
                 Welcome to <span className="spotlight">Viewfinder</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Viewfinder creates a <span className="spotlight-alt">viable digital pipeline</span> where 
-                filmmakers can build sustainable careers by sharing their journey, connecting with 
-                their audience, and being discovered by the industry through meaningful engagement.
+                Viewfinder is the platform where independent filmmakers build their body of work in public. 
+                It brings together <span className="spotlight">portfolios, creative networks, and audience discovery</span> in one place—so 
+                filmmakers can grow real support around their work and use it as leverage for funding, 
+                collaboration, and long-term creative autonomy.
               </p>
             </motion.div>
 
@@ -143,7 +144,7 @@ const Viewfinder = () => {
                       <div className="inline-block p-4 rounded-2xl bg-primary/20 backdrop-blur-xl">
                         <Camera className="text-primary" size={48} />
                       </div>
-                      <h3 className="text-3xl font-title font-bold">Creative Hub</h3>
+                      <h3 className="text-3xl font-title font-bold">PLACEHOLDER</h3>
                     </div>
                     <div className="space-y-4">
                       <div className="flex gap-2">
@@ -164,7 +165,7 @@ const Viewfinder = () => {
                 className="lg:col-span-2 space-y-6"
               >
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Host your expanding slate of projects in one beautiful, organized space.
+                  I think here can be more info about the platform and its features.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
@@ -208,7 +209,7 @@ const Viewfinder = () => {
                 className="lg:col-span-2 space-y-6 order-2 lg:order-1"
               >
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Build and manage your personal industry rolodex.
+                  Here can be the progress thing, showing the evolution of the product.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
@@ -255,7 +256,7 @@ const Viewfinder = () => {
                       <div className="inline-block p-4 rounded-2xl bg-secondary-magenta/20 backdrop-blur-xl">
                         <Users className="text-secondary-magenta" size={48} />
                       </div>
-                      <h3 className="text-3xl font-title font-bold">Private Network</h3>
+                      <h3 className="text-3xl font-title font-bold">PLACEHOLDER</h3>
                     </div>
                     <div className="flex flex-wrap gap-3">
                       {[...Array(8)].map((_, i) => (
@@ -296,7 +297,7 @@ const Viewfinder = () => {
                 className="border border-border/30 rounded-2xl px-8 py-2 bg-card/30 backdrop-blur-xl hover:bg-card/40 transition-all"
               >
                 <AccordionTrigger className="text-left text-lg font-subtitle hover:no-underline py-6">
-                  What makes Viewfinder different from other platforms?
+                  THESE ARE ALL PLACEHOLDER QUESTIONS RIGHT NOW.
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6 leading-relaxed text-base">
                   Viewfinder is built specifically for filmmakers who want to build sustainable careers 
