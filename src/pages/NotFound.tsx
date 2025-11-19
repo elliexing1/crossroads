@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Home, Camera } from "lucide-react";
+import { Home } from "lucide-react";
 import ScrapbookCard from "@/components/ScrapbookCard";
 
 const NotFound = () => {
@@ -16,7 +16,6 @@ const NotFound = () => {
     <div className="flex min-h-screen items-center justify-center bg-background px-6">
       <ScrapbookCard variant="washi" className="max-w-lg">
         <div className="text-center">
-          <Camera className="mx-auto mb-6 text-primary opacity-50" size={64} />
           <h1 className="mb-4 text-8xl font-rounded font-bold text-primary">404</h1>
           <p className="caption mb-8">Oops! This page got lost in the darkroom...</p>
           <p className="text-muted-foreground mb-8">

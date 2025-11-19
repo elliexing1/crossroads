@@ -17,18 +17,14 @@ const Viewfinder = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [betaUser, setBetaUser] = useState(false);
-  const [referralCode, setReferralCode] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, email, phone, betaUser, referralCode });
+    console.log({ name, email, phone, betaUser });
   };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="spotlight-beam spotlight-beam-1" />
-      <div className="spotlight-beam spotlight-beam-3" />
-      
       {/* Hero with Waitlist */}
       <section className="relative pt-32 pb-24">
         <div className="container mx-auto px-6 relative z-10">
@@ -40,7 +36,6 @@ const Viewfinder = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <span className="sticker inline-block">From CrossRoads</span>
               <h1 className="text-6xl lg:text-7xl font-title font-bold leading-tight">
                 Welcome to <span className="spotlight">Viewfinder</span>
               </h1>
@@ -112,20 +107,6 @@ const Viewfinder = () => {
                     <Label htmlFor="beta" className="cursor-pointer font-normal">
                       Want to be a beta user?
                     </Label>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="referral" className="text-muted-foreground">
-                      Optional: Referral code
-                    </Label>
-                    <Input
-                      id="referral"
-                      type="text"
-                      placeholder="Enter referral code"
-                      value={referralCode}
-                      onChange={(e) => setReferralCode(e.target.value)}
-                      className="bg-background/50 border-border/50"
-                    />
                   </div>
 
                   <Button 
@@ -360,7 +341,6 @@ const Viewfinder = () => {
 
       {/* FAQ */}
       <section className="relative py-32">
-        <div className="spotlight-beam spotlight-beam-2" />
         <div className="container mx-auto px-6 relative z-10 max-w-4xl">
           <motion.div
             initial={{ opacity: 0 }}

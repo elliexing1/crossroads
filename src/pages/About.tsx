@@ -9,9 +9,6 @@ import {
 const About = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="spotlight-beam spotlight-beam-1" />
-      <div className="spotlight-beam spotlight-beam-2" />
-      
       {/* Hero */}
       <section className="relative pt-40 pb-32">
         <div className="container mx-auto px-6 relative z-10">
@@ -21,7 +18,6 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto space-y-8"
           >
-            <span className="sticker inline-block">About Us</span>
             <h1 className="section-title font-title">
               Meet <span className="spotlight">CrossRoads</span>
             </h1>
@@ -33,7 +29,7 @@ const About = () => {
       </section>
 
       {/* Purpose - Asymmetric */}
-      <section className="relative py-20">
+      <section className="relative py-10">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div
@@ -92,8 +88,7 @@ const About = () => {
       </section>
 
       {/* Values - Diagonal Grid */}
-      <section className="relative py-32">
-        <div className="spotlight-beam spotlight-beam-3" />
+      <section className="relative py-30">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}

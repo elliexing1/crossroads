@@ -285,65 +285,6 @@
     50% { background-position: 100% 50%; }
   }
   
-  /* Spotlight Beam Motifs - Diagonal light beams */
-  .spotlight-beam {
-    @apply absolute pointer-events-none;
-    width: 500px;
-    height: 700px;
-    opacity: 0.12;
-    z-index: 0;
-    mix-blend-mode: screen;
-  }
-  
-  .spotlight-beam-1 {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary)) 0%, 
-      hsl(var(--primary-orange)) 40%,
-      transparent 100%);
-    top: -100px;
-    left: -100px;
-    transform: rotate(-35deg);
-    animation: beam-pulse 10s ease-in-out infinite;
-  }
-  
-  .spotlight-beam-2 {
-    background: linear-gradient(135deg, 
-      hsl(var(--secondary-magenta)) 0%, 
-      hsl(var(--secondary-purple)) 40%,
-      transparent 100%);
-    top: 30%;
-    right: -150px;
-    transform: rotate(-45deg);
-    animation: beam-pulse 12s ease-in-out infinite 3s;
-  }
-  
-  .spotlight-beam-3 {
-    background: linear-gradient(135deg, 
-      hsl(var(--secondary)) 0%, 
-      hsl(var(--primary-golden)) 40%,
-      transparent 100%);
-    bottom: -100px;
-    left: 15%;
-    transform: rotate(-40deg);
-    animation: beam-pulse 14s ease-in-out infinite 6s;
-  }
-  
-  @keyframes beam-pulse {
-    0%, 100% {
-      opacity: 0.08;
-      transform: rotate(-35deg) scale(1);
-    }
-    50% {
-      opacity: 0.18;
-      transform: rotate(-35deg) scale(1.15);
-    }
-  }
-  
-  /* Sticker effect */
-  .sticker {
-    @apply inline-block px-4 py-2 bg-accent rounded-full shadow-md transform transition-transform hover:scale-110;
-  }
-  
   /* Film grain animation */
   @keyframes film-grain {
     0%, 100% { opacity: 0.05; }
@@ -368,50 +309,6 @@
   
   .photo-reveal {
     animation: photo-reveal 0.6s ease-out forwards;
-  }
-  
-  /* Animated Doodles */
-  .doodle {
-    @apply absolute pointer-events-none;
-    opacity: 0.5;
-    z-index: 10;
-  }
-
-  .doodle-star {
-    animation: float 6s ease-in-out infinite, rotate-doodle 20s linear infinite;
-  }
-
-  .doodle-arrow {
-    animation: float 8s ease-in-out infinite 1s, wiggle 4s ease-in-out infinite;
-  }
-
-  .doodle-film {
-    animation: float 10s ease-in-out infinite 2s;
-  }
-
-  .doodle-camera {
-    animation: float 7s ease-in-out infinite 1.5s, pulse-doodle 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  @keyframes rotate-doodle {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
-  }
-
-  @keyframes pulse-doodle {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
   }
   
   /* Organic overlap */

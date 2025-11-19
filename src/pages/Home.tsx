@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="min-h-screen relative">
-      <div className="spotlight-beam spotlight-beam-1" />
-      <div className="spotlight-beam spotlight-beam-2" />
-      
       {/* Hero Section - Compact */}
       <section className="relative pt-32 pb-8 overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
@@ -18,9 +15,6 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-block">
-              <span className="sticker font-highlight text-xs">BY CROSSROADS</span>
-            </div>
             
             <h1 className="hero-title font-title leading-[0.9]">
               <span className="spotlight block">Viewfinder</span>
@@ -50,7 +44,6 @@ const Home = () => {
 
       {/* Features - Staggered Layout */}
       <section className="relative py-16 overflow-hidden">
-        <div className="spotlight-beam spotlight-beam-3" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
