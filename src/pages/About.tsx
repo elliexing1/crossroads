@@ -17,14 +17,17 @@ const About = () => {
               Meet <span className="spotlight">CrossRoads</span>
             </h1>
             <p className="text-2xl text-muted-foreground leading-relaxed">
-              Building the future of filmmaking through transparency and community
+              Building the future of filmmaking through transparency and community.
+            </p>
+            <p className="text-2xl text-muted-foreground leading-relaxed">
+              Placeholder for image!
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Purpose - Asymmetric */}
-      <section id="our-purpose" className="relative py-10">
+      <section id="our-purpose" className="relative py-32">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div
@@ -36,8 +39,7 @@ const About = () => {
             >
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-3 p-4 rounded-2xl bg-primary/10">
-                  <Sparkles className="text-primary" size={32} />
-                  <span className="text-xl font-title font-bold">Our Story</span>
+                  <span className="text-xl font-title font-bold">Our Purpose</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-title font-bold leading-tight">
                   Empowering filmmakers to{" "}
@@ -83,7 +85,7 @@ const About = () => {
       </section>
 
       {/* Values - Diagonal Grid */}
-      <section id="our-core-values" className="relative py-30">
+      <section id="our-core-values" className="relative py-32">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -183,10 +185,7 @@ const About = () => {
               { name: "Caroline McDonald", role: "Co-Founder & CEO", bio: "Caroline brings over 10 years of experience in film production and creative direction, leading CrossRoads' vision to empower independent filmmakers." },
               { name: "Melanie Limas An", role: "Co-Founder & COO", bio: "Melanie is passionate about building communities and sustainable business models that support creative professionals in the digital age." },
               { name: "John Doe", role: "Lead Engineer", bio: "John is a full-stack developer with a background in creating scalable platforms for creative industries." },
-              { name: "Jane Smith", role: "Head of Community", bio: "Jane leads community engagement initiatives and ensures filmmakers have the support they need to thrive." },
-              { name: "Alex Johnson", role: "Product Designer", bio: "Alex creates intuitive user experiences that make complex filmmaking tools accessible to everyone." },
-              { name: "Sam Williams", role: "Marketing Lead", bio: "Sam develops growth strategies and partnerships that expand CrossRoads' reach in the filmmaking community." },
-            ].map((member, i) => (
+              ].map((member, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}

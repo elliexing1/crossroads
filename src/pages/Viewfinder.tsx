@@ -128,7 +128,7 @@ const Viewfinder = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="space-y-40">
             {/* Feature 1 - Large left */}
-            <div className="grid lg:grid-cols-5 gap-12 items-center">
+            <div id="our-platform" className="grid lg:grid-cols-5 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -199,7 +199,7 @@ const Viewfinder = () => {
             </div>
 
             {/* Feature 2 - Large right */}
-            <div className="grid lg:grid-cols-5 gap-12 items-center">
+            <div id="our-progress" className="grid lg:grid-cols-5 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -271,7 +271,7 @@ const Viewfinder = () => {
       </section>
 
       {/* FAQ */}
-      <section className="relative py-32">
+      <section id="faq" className="relative py-32">
         <div className="container mx-auto px-6 relative z-10 max-w-4xl">
           <motion.div
             initial={{ opacity: 0 }}

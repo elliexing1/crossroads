@@ -1,7 +1,7 @@
 import { NavLink } from "./NavLink";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,11 +14,13 @@ import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const navigate = useNavigate();
 
   const homeLinks = [
     { title: "Join The Waitlist", href: "/#join-waitlist" },
     { title: "Our Platform", href: "/#our-platform" },
+    { title: "Our Progress", href: "/#our-progress" },
+    { title: "FAQ", href: "/#faq" },
   ];
 
   const aboutLinks = [
@@ -43,7 +45,8 @@ const Navigation = () => {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="gap-1">
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 data-[state=open]:bg-primary/10">
+                <NavigationMenuTrigger onClick={() => navigate("/")}
+                className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary data-[state=open]:bg-primary/10">
                   Home
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -67,7 +70,8 @@ const Navigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-secondary/10 data-[state=open]:bg-secondary/10">
+                <NavigationMenuTrigger onClick={() => navigate("/about")}
+                className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary data-[state=open]:bg-primary/10">
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -78,7 +82,7 @@ const Navigation = () => {
                           <a
                             href={link.href}
                             className={cn(
-                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-secondary/10 hover:text-secondary focus:bg-secondary/10 focus:text-secondary",
+                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary",
                               "text-sm font-medium"
                             )}
                           >
