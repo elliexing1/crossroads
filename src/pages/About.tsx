@@ -1,10 +1,5 @@
 import { Heart, Target, Lightbulb, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 
 const About = () => {
   return (
@@ -29,7 +24,7 @@ const About = () => {
       </section>
 
       {/* Purpose - Asymmetric */}
-      <section className="relative py-10">
+      <section id="our-purpose" className="relative py-10">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div
@@ -88,7 +83,7 @@ const About = () => {
       </section>
 
       {/* Values - Diagonal Grid */}
-      <section className="relative py-30">
+      <section id="our-core-values" className="relative py-30">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -166,7 +161,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="relative py-32">
+      <section id="meet-the-team" className="relative py-32">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -183,11 +178,14 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {[
-              { name: "Caroline McDonald", role: "Co-Founder & CEO", bio: "PLACEHOLDER BIO!" },
-              { name: "Melanie Limas An", role: "Co-Founder & COO", bio: "PLACEHOLDER BIO!" },
-              { name: "John Doe", role: "Lead Engineer", bio: "PLACEHOLDER BIO!" },
+              { name: "Caroline McDonald", role: "Co-Founder & CEO", bio: "Caroline brings over 10 years of experience in film production and creative direction, leading CrossRoads' vision to empower independent filmmakers." },
+              { name: "Melanie Limas An", role: "Co-Founder & COO", bio: "Melanie is passionate about building communities and sustainable business models that support creative professionals in the digital age." },
+              { name: "John Doe", role: "Lead Engineer", bio: "John is a full-stack developer with a background in creating scalable platforms for creative industries." },
+              { name: "Jane Smith", role: "Head of Community", bio: "Jane leads community engagement initiatives and ensures filmmakers have the support they need to thrive." },
+              { name: "Alex Johnson", role: "Product Designer", bio: "Alex creates intuitive user experiences that make complex filmmaking tools accessible to everyone." },
+              { name: "Sam Williams", role: "Marketing Lead", bio: "Sam develops growth strategies and partnerships that expand CrossRoads' reach in the filmmaking community." },
             ].map((member, i) => (
               <motion.div
                 key={i}
@@ -195,30 +193,28 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group cursor-pointer"
               >
-                <HoverCard openDelay={100} closeDelay={50}>
-                  <HoverCardTrigger asChild>
-                    <div className="group cursor-pointer">
-                      <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
-                        <img
-                          src={`/src/assets/team-${i + 1}.jpg`}
-                          alt={member.name}
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                    </div>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-80 bg-card/95 backdrop-blur-xl border-border/50">
-                    <div className="space-y-2">
-                      <h4 className="text-lg font-title font-bold">{member.name}</h4>
-                      <p className="text-sm text-primary font-medium">{member.role}</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed pt-2">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </HoverCardContent>
-                </HoverCard>
+                <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                  <img
+                    src={`/src/assets/team-${i + 1}.jpg`}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                    <p className="text-sm text-foreground leading-relaxed text-center">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-center space-y-1">
+                  <h4 className="text-lg font-title font-bold text-foreground group-hover:text-primary transition-colors">
+                    {member.name}
+                  </h4>
+                  <p className="text-sm text-foreground group-hover:text-primary transition-colors">
+                    {member.role}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

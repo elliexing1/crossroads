@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="min-h-screen relative">
       {/* Hero Section - Compact */}
-      <section className="relative pt-32 pb-8 overflow-hidden">
+      <section id="join-waitlist" className="relative pt-32 pb-8 overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div 
             className="text-center max-w-4xl mx-auto space-y-6"
@@ -43,7 +43,7 @@ const Home = () => {
       </section>
 
       {/* Features - Staggered Layout */}
-      <section className="relative py-16 overflow-hidden">
+      <section id="our-platform" className="relative py-16 overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
