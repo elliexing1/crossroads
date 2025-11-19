@@ -187,56 +187,6 @@
     transform: rotate(0deg) scale(1.05);
   }
   
-  /* Washi tape effect */
-  .washi-tape {
-    @apply relative;
-  }
-  
-  .washi-tape::before {
-    content: '';
-    @apply absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
-    @apply w-24 h-8 opacity-40;
-    background: linear-gradient(90deg, 
-      hsl(var(--dusty-pink)) 0%, 
-      hsl(var(--dusty-pink)) 100%);
-    transform: translateX(-50%) translateY(-50%) rotate(-5deg);
-  }
-  
-  /* Paper cutout effect */
-  .paper-cutout {
-    @apply bg-card rounded-3xl p-6 shadow-md;
-    box-shadow: 
-      3px 3px 8px rgba(0,0,0,0.1),
-      -1px -1px 3px rgba(255,255,255,0.5);
-  }
-  
-  /* Film strip border */
-  .film-strip {
-    @apply relative border-4 border-film-brown;
-    background: 
-      repeating-linear-gradient(
-        90deg,
-        hsl(var(--film-brown)) 0px,
-        hsl(var(--film-brown)) 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        hsl(var(--film-brown)) 0px,
-        hsl(var(--film-brown)) 8px,
-        transparent 8px,
-        transparent 16px
-      );
-  }
-  
-  /* Soft shadows for overlapping elements */
-  .scrapbook-shadow {
-    box-shadow: 
-      2px 4px 12px rgba(0,0,0,0.08),
-      4px 8px 24px rgba(0,0,0,0.06);
-  }
-  
   /* Hero title - scrapbook style */
   .hero-title {
     @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight;
