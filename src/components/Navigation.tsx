@@ -1,9 +1,31 @@
 import { NavLink } from "./NavLink";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const homeLinks = [
+    { title: "Join The Waitlist", href: "/#join-waitlist" },
+    { title: "Our Platform", href: "/#our-platform" },
+  ];
+
+  const aboutLinks = [
+    { title: "Our Purpose", href: "/about#our-purpose" },
+    { title: "Our Core Values", href: "/about#our-core-values" },
+    { title: "Meet The Team", href: "/about#meet-the-team" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/20">
@@ -18,29 +40,58 @@ const Navigation = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-3">
-            <NavLink
-              to="/"
-              className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10"
-              activeClassName="bg-gradient-to-r from-primary to-primary-orange text-background font-semibold shadow-lg"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/about"
-              className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-secondary/10"
-              activeClassName="bg-gradient-to-r from-primary to-primary-orange text-background font-semibold shadow-lg"
-            >
-              About
-            </NavLink>
-            {/* <NavLink
-              to="/viewfinder"
-              className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-secondary-magenta/10"
-              activeClassName="bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta text-background font-semibold shadow-lg"
-            >
-              Viewfinder
-            </NavLink> */}
-          </div>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="gap-1">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 data-[state=open]:bg-primary/10">
+                  Home
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[250px] gap-1 p-2 bg-card/95 backdrop-blur-xl border border-border/50">
+                    {homeLinks.map((link) => (
+                      <li key={link.href}>
+                        <NavigationMenuLink asChild>
+                          <a
+                            href={link.href}
+                            className={cn(
+                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary",
+                              "text-sm font-medium"
+                            )}
+                          >
+                            {link.title}
+                          </a>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-secondary/10 data-[state=open]:bg-secondary/10">
+                  About
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[250px] gap-1 p-2 bg-card/95 backdrop-blur-xl border border-border/50">
+                    {aboutLinks.map((link) => (
+                      <li key={link.href}>
+                        <NavigationMenuLink asChild>
+                          <a
+                            href={link.href}
+                            className={cn(
+                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-secondary/10 hover:text-secondary focus:bg-secondary/10 focus:text-secondary",
+                              "text-sm font-medium"
+                            )}
+                          >
+                            {link.title}
+                          </a>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Mobile Menu Button */}
           <button
