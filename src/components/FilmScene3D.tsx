@@ -1,71 +1,42 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
+// src/components/FilmScene3D.tsx
+import { useEffect, useState } from "react";
+import logoIcon from "../assets/logo-icon.png"; // adjust path if needed
 
-function CameraModel({ mouse }) {
-  const { scene } = useGLTF("/models/filmCamera.glb");
-  const ref = useRef<THREE.Group>(null);
-  const baseOffsetY = -1;
-
-  useFrame(() => {
-    if (!ref.current) return;
-
-    // Gentle auto rotation (very subtle)
-    ref.current.rotation.y += 0.006;
-
-    // Mouse parallax lerp
-    ref.current.rotation.x = THREE.MathUtils.lerp(
-      ref.current.rotation.x,
-      mouse.y * 0.15,
-      0.05
-    );
-    ref.current.rotation.y = THREE.MathUtils.lerp(
-      ref.current.rotation.y,
-      mouse.x * 0.15,
-      0.05
-    );
-
-    ref.current.position.x = THREE.MathUtils.lerp(
-      ref.current.position.x,
-      mouse.x * 0.4,
-      0.05
-    );
-    ref.current.position.y = THREE.MathUtils.lerp(
-      ref.current.position.y,
-      baseOffsetY - mouse.y * 0.4,
-      0.05
-    );
-  });
-
-  return (
-    <group ref={ref} scale={12} position={[0, 0, 0]}>
-      <primitive object={scene} />
-    </group>
-  );
-}
+type Offset = { x: number; y: number };
 
 export default function FilmScene3D() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [offset, setOffset] = useState<Offset>({ x: 0, y: 0 });
 
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      setMouse({ x, y });
+    const handleMove = (e: MouseEvent) => {
+      // normalize mouse to [-1, 1]
+      const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+      const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+
+      // very small movement so it feels almost static
+      setOffset({
+        x: nx * 10, // 10px max in either direction
+        y: ny * 10,
+      });
     };
 
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none opacity-25">
-      <Canvas camera={{ position: [0, 0, 6], fov: 35 }}>
-        <ambientLight intensity={0.8} />
-        <directionalLight intensity={1.2} position={[3, 5, 5]} />
-        <CameraModel mouse={mouse} />
-      </Canvas>
+    <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center">
+      <img
+        src={logoIcon}
+        alt="Logo"
+        className="opacity-5 md:opacity-10 transition-transform duration-150 ease-out"
+        style={{
+          // center + tiny parallax
+          transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
+          maxWidth: "1000px",
+          width: "60vw",
+        }}
+      />
     </div>
   );
 }

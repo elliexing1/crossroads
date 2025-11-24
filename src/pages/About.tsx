@@ -1,4 +1,5 @@
-import { Heart, Target, Lightbulb, Sparkles } from "lucide-react";
+import { Clapperboard, Users, Infinity, Sparkles } from "lucide-react";
+
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -109,8 +110,9 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
               <div className="relative p-10 rounded-2xl bg-card/40 backdrop-blur-xl border border-primary/10 hover:border-primary/30 transition-all h-full">
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-primary/10">
-                  <Heart className="text-primary" size={40} />
+                  <Clapperboard className="text-primary" size={40} />
                 </div>
+
                 <h3 className="text-2xl font-title font-bold mb-4">Respect The Craft</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Placeholder description. idk what they want us to do with the bullet points atm.
@@ -128,8 +130,9 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-br from-secondary/20 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
               <div className="relative p-10 rounded-2xl bg-card/40 backdrop-blur-xl border border-secondary/10 hover:border-secondary/30 transition-all h-full">
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-secondary/10">
-                  <Target className="text-secondary" size={40} />
+                  <Users className="text-secondary" size={40} />
                 </div>
+
                 <h3 className="text-2xl font-title font-bold mb-4">Innovation Is For The People</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Building in public means celebrating wins, sharing struggles, and 
@@ -148,8 +151,9 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-br from-primary-orange/20 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
               <div className="relative p-10 rounded-2xl bg-card/40 backdrop-blur-xl border border-primary-orange/10 hover:border-primary-orange/30 transition-all h-full">
                 <div className="mb-8 p-5 w-fit rounded-2xl bg-primary-orange/10">
-                  <Lightbulb className="text-primary-orange" size={40} />
-                </div>
+                <Infinity className="text-primary-orange" size={40} />
+              </div>
+
                 <h3 className="text-2xl font-title font-bold mb-4">Evolve Fast; Endure Long-Term</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   Artists should control their narrative and build direct relationships 
