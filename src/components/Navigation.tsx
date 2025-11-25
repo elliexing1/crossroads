@@ -17,7 +17,6 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const homeLinks = [
-    { title: "Join The Waitlist", href: "/#join-waitlist" },
     { title: "Our Platform", href: "/#our-platform" },
     { title: "Our Progress", href: "/#our-progress" },
     { title: "FAQ", href: "/#faq" },
@@ -45,7 +44,9 @@ const Navigation = () => {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="gap-1">
               <NavigationMenuItem>
-                <NavigationMenuTrigger onClick={() => navigate("/")}
+                <NavigationMenuTrigger onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/"); }}
                 className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary data-[state=open]:bg-primary/10">
                   Home
                 </NavigationMenuTrigger>
@@ -70,7 +71,9 @@ const Navigation = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger onClick={() => navigate("/about")}
+                <NavigationMenuTrigger onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/about"); }}
                 className="px-5 py-2.5 text-sm font-medium rounded-full transition-all hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary data-[state=open]:bg-primary/10">
                   About
                 </NavigationMenuTrigger>
