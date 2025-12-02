@@ -3,9 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CursorSpotlight from "./components/CursorSpotlight";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import FilmScene3D from "./components/FilmScene3D";
+import StickyWaitlistBtn from "./components/StickyWaitlistBtn";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -18,7 +19,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <FilmScene3D />
+      <CursorSpotlight />
+      <StickyWaitlistBtn />
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />

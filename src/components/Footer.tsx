@@ -21,7 +21,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-subtitle text-lg font-semibold mb-5 spotlight">Quick Links</h3>
+            <h3 className="font-subtitle text-lg font-semibold mb-5">Quick Links</h3>
             <nav className="space-y-3">
               <Link
                 to="/"
@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-subtitle text-lg font-semibold mb-5 spotlight">Get in Touch</h3>
+            <h3 className="font-subtitle text-lg font-semibold mb-5">Get in Touch</h3>
             <div className="space-y-4">
               <a
                 href="mailto:hello@crossroads.com"

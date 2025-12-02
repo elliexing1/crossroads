@@ -1,278 +1,205 @@
-import { Camera, Users, Plus, Eye, Zap } from "lucide-react";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+// Accordian is used for FAQ section, currently commented out
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import WaitlistForm from '@/components/WaitlistForm';
 
-const Home = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [betaUser, setBetaUser] = useState(false);
+const Home: React.FC = () => {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [showHeroLogo, setShowHeroLogo] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ name, email, phone, betaUser });
+  const toggleAccordion = (id: string) => {
+    setOpenAccordion(openAccordion === id ? null : id);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide hero logo when scrolling past threshold, triggering animation to navbar
+      setShowHeroLogo(window.scrollY <= 280);
+    };
+    
+    // Initial check
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Hero with Waitlist */}
-      <section className="relative pt-32 pb-24">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-            {/* Left: Intro & Tagline */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <h1 className="text-6xl lg:text-7xl font-title font-bold leading-tight">
-                Welcome to <span className="spotlight">CrossRoads</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                CrossRoads is building a mobile-first platform for independent filmmakers to build 
-                their body of work in public. It brings together portfolios, creative networks, 
-                and audience discovery in one place, so filmmakers can grow real support around 
-                their work and use it as leverage for funding, collaboration, and long-term creative autonomy.
-              </p>
-            </motion.div>
+    <div className="bg-paper text-ink overflow-x-hidden">
+      
+      {/* 1. Hero Section */}
+      <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden bg-black">
+        {/* Background Gradients */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent rounded-full blur-[120px] opacity-20"></div>
 
-            {/* Right: Waitlist Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
-              <div className="relative p-10 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50">
-                <h3 className="text-3xl font-title font-bold mb-2">Join the Waitlist</h3>
-                <p className="text-muted-foreground mb-8">Be among the first to access CrossRoads</p>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Your full name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                      className="bg-background/50 border-border/50"
-                    />
+        {/* Cinematic Placeholder Image */}
+        <div 
+          className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
+          style={{ backgroundImage: `url('/src/assets/home-background.jpg')` }} 
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/60 to-transparent z-10"></div>
+        
+        <div className="relative z-20 max-w-6xl mx-auto px-6 text-center space-y-8">
+          {/* Logo Animation Container - Preserves height to prevent layout jump */}
+          <div className="h-32 md:h-48 w-full flex items-center justify-center relative">
+            <AnimatePresence>
+              {showHeroLogo && (
+                <motion.img 
+                  layoutId="crossroads-logo"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }} // Scale down slightly as it leaves
+                  transition={{ duration: 0.5, type: "spring", stiffness: 60 }}
+                  src="/src/assets/logo.png" 
+                  alt="CrossRoads" 
+                  className="h-24 md:h-40 w-auto object-contain drop-shadow-[0_0_15px_rgba(131,180,70,0.3)]"
+                />
+              )}
+            </AnimatePresence>
+          </div>
+          <p className="text-lg md:text-2xl font-work font-light opacity-80 max-w-2xl mx-auto text-ink/80 leading-relaxed">
+            Build your body of work. Find your audience. <br/> <span className="spotlight">Own your career.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* 2. CrossRoads Description */}
+      <section className="py-20 md:py-32 px-6 relative">
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[200px] bg-brand-green blur-[150px] opacity-10 pointer-events-none"></div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <p className="text-2xl md:text-4xl font-grotesk font-medium leading-tight md:leading-tight text-ink">
+            “CrossRoads is building a mobile-first platform for independent filmmakers to build their body of work in public. It brings together portfolios, creative networks, and audience discovery in one place, so filmmakers can grow real support around their work and use it as leverage for funding, collaboration, and long-term creative autonomy."
+          </p>
+        </div>
+      </section>
+
+      {/* 3. Prototype Info */}
+      <section className="py-16 bg-gradient-to-r from-secondary/10 to-paper border-y border-secondary/20">
+        <div className="max-w-md mx-auto px-6 text-center">
+          <div className="w-3 h-3 bg-highlight rounded-none rotate-45 mx-auto mb-6 animate-pulse shadow-[0_0_15px_#F1E82F]"></div>
+          <p className="font-mono text-sm md:text-base text-brand-green uppercase tracking-widest">
+            Prototype with network rolodex & ISO features in early 2026.
+          </p>
+        </div>
+      </section>
+
+      {/* 4. App Visuals - Horizontally Scrollable */}
+      <section className="py-24 overflow-hidden border-b border-secondary/20 bg-paper" id="app-preview">
+        <div className="w-full">
+          <div className="max-w-6xl mx-auto px-4">
+             <h2 className="text-xs font-mono uppercase tracking-widest mb-12 text-center text-secondary">Early Access Preview</h2>
+          </div>
+          
+          <div className="flex overflow-x-auto gap-8 px-6 pb-12 snap-x no-scrollbar w-full flex-nowrap">
+            {[
+              { num: 1, desc: "Welcome page" },
+              { num: 2, desc: "Set up account" },
+              { num: 3, desc: "Home page" },
+              { num: 4, desc: "Your profile" },
+              { num: 5, desc: "Your network" },
+              { num: 6, desc: "Your messages" },
+              { num: 7, desc: "Conversation" },
+              { num: 8, desc: "Another user's profile" },
+            ].map(({ num, desc }) => (
+              <div key={num} className="snap-center shrink-0 w-[70vw] md:w-[25vw] relative group">
+                <div className="relative shadow-2xl border border-secondary/50 group-hover:border-highlight/50 transition-colors duration-500 rounded-lg overflow-hidden flex items-center justify-center" style={{ aspectRatio: '9/19' }}>
+                  <img 
+                    src={`/src/assets/app-preview/page-${num}.jpg`}
+                    alt={desc}
+                    className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                    style={{ aspectRatio: '9/19' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-paper/90 pointer-events-none"></div>
+                  <div className="absolute bottom-6 left-6 text-ink text-xs font-mono border-l-2 border-accent pl-2">
+                    FRAME_00{num} <br/> <span className="opacity-50">{desc}</span>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="bg-background/50 border-border/50"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+1 (555) 000-0000"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      required
-                      className="bg-background/50 border-border/50"
-                    />
-                  </div>
-
-                  <div className="flex items-center space-x-3">
-                    <Checkbox
-                      id="beta"
-                      checked={betaUser}
-                      onCheckedChange={(checked) => setBetaUser(checked as boolean)}
-                    />
-                    <Label htmlFor="beta" className="cursor-pointer font-normal">
-                      Want to be a beta user?
-                    </Label>
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full bg-gradient-to-r from-primary to-primary-orange hover:opacity-90 transition-opacity"
-                  >
-                    Join Waitlist
-                  </Button>
-                </form>
+                </div>
               </div>
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features - Asymmetric Showcase */}
-      <section className="relative py-20">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="space-y-40">
-            {/* Feature 1 - Large left */}
-            <div id="our-platform" className="grid lg:grid-cols-5 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-3 space-y-8"
-              >
-                <div className="relative">
-                  <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-primary-orange/20 rounded-[3rem] blur-3xl" />
-                  <div className="relative h-[500px] rounded-3xl bg-gradient-to-br from-primary/10 to-primary-orange/10 border border-primary/20 overflow-hidden p-8 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      <div className="inline-block p-4 rounded-2xl bg-primary/20 backdrop-blur-xl">
-                        <Camera className="text-primary" size={48} />
-                      </div>
-                      <h3 className="text-3xl font-title font-bold">PLACEHOLDER</h3>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex gap-2">
-                        <div className="w-24 h-24 rounded-xl bg-primary/30 backdrop-blur-xl" />
-                        <div className="w-24 h-24 rounded-xl bg-primary/20 backdrop-blur-xl" />
-                        <div className="w-24 h-24 rounded-xl bg-primary/25 backdrop-blur-xl" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+      {/* 5. Diagonal Card: The Why / The Problem */}
+      <section className="py-20 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-3xl bg-gray-900 group">
+            {/* Background Image */}
+            <div className="absolute inset-0 bg-[url('/src/assets/home-hero.jpg')] bg-cover bg-center opacity-40 mix-blend-luminosity"></div>
+            
+            {/* Diagonal Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent via-brand-purple to-secondary opacity-90 mix-blend-multiply transition-opacity duration-700"></div>
+            
+            {/* Strong Diagonal Cut */}
+            <div className="absolute -top-1/2 -right-1/4 w-[150%] h-[200%] bg-gradient-to-r from-accent to-brand-magenta transform -rotate-12 translate-x-12 translate-y-12 opacity-90 mix-blend-overlay md:group-hover:translate-x-0 transition-transform duration-700"></div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="lg:col-span-2 space-y-6"
-              >
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  I think here can be more info about the platform and its features.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-primary/10 mt-1">
-                      <Plus className="text-primary" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Project Showcase</p>
-                      <p className="text-sm text-muted-foreground">Rich media galleries for all your work</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-primary/10 mt-1">
-                      <Eye className="text-primary" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Behind-the-Scenes</p>
-                      <p className="text-sm text-muted-foreground">Share your creative process</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-primary/10 mt-1">
-                      <Zap className="text-primary" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Progress Updates</p>
-                      <p className="text-sm text-muted-foreground">Keep your audience engaged</p>
-                    </div>
-                  </li>
-                </ul>
-              </motion.div>
+            <div className="relative z-10 p-12 md:p-24 flex flex-col items-start justify-center min-h-[600px]">
+                <div className="font-mono text-highlight text-sm tracking-widest mb-6 border border-highlight rounded-full px-4 py-1">THE PROBLEM</div>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-grotesk font-bold leading-[0.9] text-white max-w-4xl drop-shadow-lg">
+                    EMERGING FILMMAKERS ARE COMPETING IN ECOSYSTEMS BUILT FOR <span className="text-paper bg-highlight px-2 italic">VIRALITY</span>, NOT ARTISTIC EXPRESSION.
+                </h2>
             </div>
-
-            {/* Feature 2 - Large right */}
-            <div id="our-progress" className="grid lg:grid-cols-5 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="lg:col-span-2 space-y-6 order-2 lg:order-1"
-              >
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Here can be the progress thing, showing the evolution of the product.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-secondary-magenta/10 mt-1">
-                      <Users className="text-secondary-magenta" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Collaboration Tools</p>
-                      <p className="text-sm text-muted-foreground">Connect with your crew</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-secondary-magenta/10 mt-1">
-                      <Plus className="text-secondary-magenta" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Smart Organization</p>
-                      <p className="text-sm text-muted-foreground">By project, role, or relationship</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 p-4 rounded-xl bg-card/30 backdrop-blur-xl border border-border/30">
-                    <div className="p-2 rounded-lg bg-secondary-magenta/10 mt-1">
-                      <Zap className="text-secondary-magenta" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1">Direct Messaging</p>
-                      <p className="text-sm text-muted-foreground">Communicate seamlessly</p>
-                    </div>
-                  </li>
-                </ul>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-3 space-y-8 order-1 lg:order-2"
-              >
-                <div className="relative">
-                  <div className="absolute -inset-6 bg-gradient-to-br from-secondary-magenta/20 to-secondary-purple/20 rounded-[3rem] blur-3xl" />
-                  <div className="relative h-[500px] rounded-3xl bg-gradient-to-br from-secondary-magenta/10 to-secondary-purple/10 border border-secondary-magenta/20 overflow-hidden p-8 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      <div className="inline-block p-4 rounded-2xl bg-secondary-magenta/20 backdrop-blur-xl">
-                        <Users className="text-secondary-magenta" size={48} />
-                      </div>
-                      <h3 className="text-3xl font-title font-bold">PLACEHOLDER</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      {[...Array(8)].map((_, i) => (
-                        <div key={i} className="w-16 h-16 rounded-full bg-secondary-magenta/30 backdrop-blur-xl" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="relative py-32">
+      {/* 6. Diagonal Card: The Who / The Solution */}
+      <section className="py-12 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-3xl bg-paper group">
+            {/* Diagonal Shape */}
+            <div className="absolute top-0 left-0 w-full h-full bg-secondary/20"></div>
+            
+            {/* The Cut */}
+            <div className="absolute -bottom-1/2 -left-1/4 w-[150%] h-[200%] bg-gradient-to-tr from-brand-green to-highlight transform rotate-6 opacity-100 mix-blend-normal md:group-hover:rotate-3 transition-transform duration-700"></div>
+
+            <div className="relative z-10 grid md:grid-cols-2 gap-12 min-h-[700px]">
+                <div className="p-12 md:p-16 flex flex-col justify-end md:justify-center">
+                    <div className="font-mono text-secondary text-sm tracking-widest mb-6 border border-secondary rounded-full px-4 py-1 w-fit bg-paper/50 backdrop-blur-sm">THE SOLUTION</div>
+                    <h2 className="text-5xl md:text-7xl font-grotesk font-bold leading-[0.85] text-paper mb-8">
+                        INTRODUCING CROSSROADS: BY ARTISTS,<br/>FOR ARTISTS.
+                    </h2>
+                     <div className="w-24 h-2 bg-paper mb-8"></div>
+                </div>
+
+                {/* Scrapbook Collage embedded in diagonal layout */}
+                <div className="relative h-full w-full min-h-[400px]">
+                     <div className="absolute top-1/4 right-12 w-64 h-80 bg-paper p-3 rotate-6 shadow-2xl z-20 hover:rotate-2 transition-transform duration-500">
+                         <img src="/src/assets/home-solution-caroline.JPG" className="w-full h-full object-cover" />
+                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-accent/80 mix-blend-multiply -rotate-2"></div>
+                     </div>
+                     <div className="absolute bottom-24 left-12 w-56 h-72 bg-paper p-3 -rotate-3 shadow-2xl z-10 hover:rotate-0 transition-transform duration-500">
+                         <img src="/src/assets/home-solution-melanie.JPG" className="w-full h-full object-cover" />
+                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-brand-purple/80 mix-blend-multiply rotate-1"></div>
+                     </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section className="py-24 text-center bg-paper">
+        <Link 
+            to="/about" 
+            className="group relative inline-flex items-center gap-4 px-10 py-5 bg-highlight text-paper rounded-full overflow-hidden hover:bg-primary-orange transition-colors duration-300"
+        >
+          <span className="relative z-10 font-mono font-bold tracking-[0.2em] uppercase text-lg">Learn More About Us</span>
+          <div className="relative z-10 p-2 bg-paper/10 rounded-full group-hover:translate-x-2 transition-transform">
+             <ArrowRight className="w-6 h-6" />
+          </div>
+          
+          {/* Shine Effect */}
+          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent z-0"></div>
+        </Link>
+      </section>
+
+      {/* FAQ - REMOVED FOR NOW. UNCOMMENT AND FILL OUT IF NECESSARY */}
+      {/* <section id="faq" className="relative py-32">
         <div className="container mx-auto px-6 relative z-10 max-w-4xl">
           <motion.div
             initial={{ opacity: 0 }}
@@ -364,7 +291,20 @@ const Home = () => {
             </Accordion>
           </motion.div>
         </div>
+      </section> */}
+
+      {/* 8. Waitlist Section */}
+      <section id="waitlist-section" className="py-32 px-6 bg-[#0B0F12] relative overflow-hidden border-t border-secondary/20">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+        <div className="max-w-3xl mx-auto relative z-10">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-5xl md:text-6xl font-grotesk font-bold text-highlight tracking-tight">JOIN THE MOVEMENT</h2>
+            <p className="font-work text-lg text-brand-green/80">Be the first to know when we launch.</p>
+          </div>
+          <WaitlistForm />
+        </div>
       </section>
+
     </div>
   );
 };
