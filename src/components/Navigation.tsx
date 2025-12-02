@@ -129,14 +129,6 @@ const Navigation = () => {
             >
               About
             </NavLink>
-            {/* <NavLink
-              to="/viewfinder"
-              onClick={() => setIsOpen(false)}
-              className="block px-5 py-3 text-base font-medium rounded-xl transition-all hover:bg-secondary-magenta/10"
-              activeClassName="bg-gradient-to-r from-primary via-primary-orange to-secondary-magenta text-background font-semibold"
-            >
-              Viewfinder
-            </NavLink> */}
           </div>
         )}
       </div>

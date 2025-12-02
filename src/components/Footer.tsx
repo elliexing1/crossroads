@@ -35,12 +35,6 @@ const Footer = () => {
               >
                 About
               </Link>
-              {/* <Link
-                to="/viewfinder"
-                className="block text-muted-foreground hover:text-primary-orange transition-all hover:translate-x-1"
-              >
-                Viewfinder
-              </Link> */}
             </nav>
           </div>
 

@@ -52,7 +52,7 @@ const About = () => {
                   is labeled as risk rather than potential.
                 </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Viewfinder is the product of countless conversations with fellow filmmakers 
+                  CrossRoads is the product of countless conversations with fellow filmmakers 
                   about the consequences of being forced to play by the rules of social media. 
                   We founded CrossRoads out of sheer determination to build the pathways we 
                   need as filmmakers in order to keep creating work we believe in.

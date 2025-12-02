@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import FilmScene3D from "./components/FilmScene3D";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Viewfinder from "./pages/Viewfinder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,11 +21,8 @@ const App = () => (
         <FilmScene3D />
         <Navigation />
         <Routes>
-          <Route path="/" element={<Viewfinder />} />
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/viewfinder" element={<Viewfinder />} /> */}
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
