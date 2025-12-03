@@ -87,7 +87,7 @@ const Home: React.FC = () => {
         <div className="max-w-md mx-auto px-6 text-center">
           <div className="w-3 h-3 bg-highlight rounded-none rotate-45 mx-auto mb-6 animate-pulse shadow-[0_0_15px_#F1E82F]"></div>
           <p className="font-mono text-sm md:text-base text-brand-green uppercase tracking-widest">
-            Prototype with network rolodex & ISO features in early 2026.
+            Prototype with network rolodex & ISO features available in early 2026.
           </p>
         </div>
       </section>

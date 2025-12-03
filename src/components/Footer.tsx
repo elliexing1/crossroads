@@ -25,12 +25,14 @@ const Footer = () => {
             <nav className="space-y-3">
               <Link
                 to="/"
+                onClick={() => window.scrollTo(0, 0)}
                 className="block text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
                 Home
               </Link>
               <Link
                 to="/about"
+                onClick={() => window.scrollTo(0, 0)}
                 className="block text-muted-foreground hover:text-primary transition-all hover:translate-x-1"
               >
                 About
