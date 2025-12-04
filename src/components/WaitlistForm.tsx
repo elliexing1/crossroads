@@ -49,7 +49,7 @@ const WaitlistForm: React.FC = () => {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-widest opacity-70 text-brand-green">Phone Number</label>
+        <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-widest opacity-70 text-brand-green">Phone Number *</label>
         <input 
           type="tel" 
           id="phone" 
